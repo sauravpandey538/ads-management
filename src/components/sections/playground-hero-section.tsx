@@ -7,11 +7,11 @@ import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { DashboardMockup } from "@/components/illustrations/dashboard-mockup";
 import { PlaygroundDoodle } from "@/components/illustrations/playground-doodles";
 import { FadeIn } from "@/components/motion/fade-in";
-import { PrimaryButton } from "@/components/shared/primary-button";
+import { CtaPair } from "@/components/shared/cta-pair";
 import { ReviewSourceLink } from "@/components/shared/review-source-link";
+import { ProofBar } from "@/components/sections/proof-bar-section";
 import { LogoMarquee } from "@/components/shared/logo-marquee";
 import { heroTabSlugs, services, type ServiceSlug } from "@/lib/services-data";
-import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 const tabIcons: Record<string, string> = {
@@ -36,18 +36,17 @@ export function PlaygroundHeroSection() {
             <span className="text-play-blue-dark">actually trust</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Meta, Instagram, and YouTube campaigns built around demos, trials, and pipeline — with
-            the transparency your budget deserves.
+            We run paid ads for B2B SaaS companies that are tired of spending $15K/month and not
+            knowing which campaigns are actually filling their pipeline. No guesswork. No fluff. Just
+            qualified demos.
           </p>
-          <div className="mt-8 flex justify-center">
-            <PrimaryButton href="/free-audit" size="lg">
-              {siteConfig.ctaPrimary}
-            </PrimaryButton>
-          </div>
+          <CtaPair className="mt-8" />
           <div className="mt-5 flex justify-center">
             <ReviewSourceLink />
           </div>
         </FadeIn>
+
+        <ProofBar className="mt-8" />
 
         <FadeIn delay={0.1} className="mt-12">
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as ServiceSlug)}>

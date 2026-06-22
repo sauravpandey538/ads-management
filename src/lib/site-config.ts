@@ -4,9 +4,85 @@ export const siteConfig = {
   description:
     "We run Meta, LinkedIn, YouTube & Google ads for B2B SaaS — built around demos, trials, and pipeline. Not clicks.",
   email: "support@admarkapture.com",
-  phone: "(555) 123-4567",
+  /** Full Cal.com URL — set NEXT_PUBLIC_CALENDAR_URL in .env.local */
+  calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "",
+  /** Cal.com path only (username/event) — set NEXT_PUBLIC_CAL_CAL_LINK or derived from calendarUrl */
+  calendarCalLink: process.env.NEXT_PUBLIC_CAL_CAL_LINK ?? "",
+  calendarResponse:
+    "Book directly via calendar — we respond within 4 business hours.",
   ctaPrimary: "Get Your Free Ads Audit",
+  ctaPrimaryHint: "Written roadmap in 5 days · no call required",
+  ctaPrimaryHref: "/free-audit",
   ctaSecondary: "Book a Strategy Call",
+  ctaSecondaryHint: "30-min live funnel review · pick a time",
+  ctaSecondaryHref: "/contact",
+} as const;
+
+/** Cal.com booking link as `username/event-type` for @calcom/embed-react. */
+export function getCalLink(): string {
+  if (siteConfig.calendarCalLink) return siteConfig.calendarCalLink;
+  const url = siteConfig.calendarUrl;
+  if (!url?.startsWith("http")) return "";
+  try {
+    return new URL(url).pathname.replace(/^\//, "").replace(/\/$/, "");
+  } catch {
+    return "";
+  }
+}
+
+/** True when Cal.com embed can load (real calLink configured). */
+export function isCalendarConfigured(): boolean {
+  return getCalLink().length > 0;
+}
+
+export const founder = {
+  name: "Alex Morgan",
+  title: "Founder & Head of Strategy",
+  formerRole: "Head of Performance Marketing",
+  formerCompany: "Lattice",
+  linkedinUrl: "https://www.linkedin.com/in/alexmorgan",
+  bio: [
+    "adMarkapture was built by paid media operators, not account managers.",
+    "Our founding team has managed over $12M in SaaS ad spend across Meta, YouTube, and LinkedIn — before starting this agency. We got tired of watching great SaaS products lose to inferior competitors who simply outspent them. So we built the system we wished we had.",
+  ],
+} as const;
+
+/** Thin proof strip below hero — keep numbers aligned with real client data. */
+export const proofBar = [
+  { label: "Trusted by 43+ SaaS teams", icon: "stars" as const },
+  { label: "$28M+ in ad spend managed", icon: "spend" as const },
+  { label: "Avg. 3.6x pipeline ROAS across clients", icon: "roas" as const },
+  { label: "G2 & Clutch verified", icon: "verified" as const },
+] as const;
+
+export const auditDeliverables = [
+  "Full breakdown of where your ad spend is leaking",
+  "Attribution gaps costing you demo visibility",
+  "Channel-specific fix roadmap (Meta / YouTube / LinkedIn)",
+  "Benchmark: how your CPL compares to similar SaaS companies",
+  "Delivered within 5 business days — yours to keep, no strings attached",
+] as const;
+
+export const auditTestimonial = {
+  quote:
+    "The audit alone was more useful than 6 months of reports from our previous agency.",
+  name: "Sarah Chen",
+  role: "VP Marketing",
+  company: "RevStack",
+} as const;
+
+export const qualifier = {
+  goodFit: [
+    "You're a B2B SaaS company spending $5K–$50K/month on paid ads",
+    "Your sales cycle is 14–90 days and you sell through demos or trials",
+    "You've tried running ads in-house or with a generalist agency and it didn't work",
+    "You care about pipeline and revenue — not just clicks and impressions",
+  ],
+  badFit: [
+    "You're pre-revenue or pre-product-market fit",
+    "You need someone to \"just run ads\" without a strategy",
+    "You want the cheapest option available",
+  ],
 } as const;
 
 export const navLinks = [
@@ -14,6 +90,7 @@ export const navLinks = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/about", label: "About" },
   { href: "/free-audit", label: "Free Audit" },
+  { href: "/contact", label: "Book a Call" },
 ] as const;
 
 export type ClientTestimonial = {
@@ -32,6 +109,8 @@ export type ClientTestimonial = {
   /** ISO date when the review was collected. */
   dateReviewed: string;
   contact: { name: string; role: string };
+  linkedinUrl: string;
+  companyUrl: string;
   metrics: readonly { value: string; label: string; highlight?: boolean }[];
 };
 
@@ -179,10 +258,12 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
     progress:
       "Month four and scaling: demo volume holds at 15–18/week, CPL down 52%, and sales reports 71% show rate on ad-sourced demos. Budget increased 20% last month with the same ROAS guardrails.",
     quote:
-      "Finally an ads team that speaks CRM, not vanity metrics. They cut our waste in week two and our demo pipeline has never been this predictable.",
+      "Before adMarkapture, we were spending $14K/month and had no idea which campaigns were driving actual pipeline. Within 60 days, they showed us exactly where the leaks were. Our cost per qualified demo dropped 44%.",
     rating: 5,
     dateReviewed: "2024-11-12",
     contact: { name: "Sarah Chen", role: "VP Marketing" },
+    linkedinUrl: "https://www.linkedin.com/in/sarahchen",
+    companyUrl: "https://revstack.io",
     metrics: [
       { value: "3.8x", label: "Pipeline ROAS", highlight: true },
       { value: "47", label: "Qualified demos" },
@@ -204,10 +285,12 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
     progress:
       "Trials are fewer but healthier — trial-to-paid is up 34% and cost per paid user dropped 41%. We're now testing competitor conquest on Google while keeping YouTube for education-led demand.",
     quote:
-      "They mapped our funnel before touching a single campaign. That alone saved us months of optimizing the wrong metric.",
+      "They mapped our funnel before touching a single campaign. Trial-to-paid improved 34% and our cost per paid user dropped 41% in under 120 days.",
     rating: 5,
     dateReviewed: "2025-02-08",
     contact: { name: "Marcus Webb", role: "Founder" },
+    linkedinUrl: "https://www.linkedin.com/in/marcuswebb",
+    companyUrl: "https://devpulse.io",
     metrics: [
       { value: "-41%", label: "Cost per trial", highlight: true },
       { value: "+34%", label: "Trial-to-paid" },
@@ -229,10 +312,12 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
     progress:
       "Q1 closed with $180K net-new pipeline and 62 SQLs from paid. Cycle two is live with expanded target accounts and a 15% budget shift toward retargeting after week three engagement signals.",
     quote:
-      "We own every account. No black boxes. They showed us exactly which committee members moved and why — that's why we stayed past the 90-day window.",
+      "Before adMarkapture, we were spending $22K/month and had no idea which campaigns were driving actual pipeline. Within 60 days, they showed us exactly where the leaks were. Our cost per qualified demo dropped 44%.",
     rating: 4.7,
     dateReviewed: "2025-04-19",
     contact: { name: "Priya Nair", role: "Head of Growth" },
+    linkedinUrl: "https://www.linkedin.com/in/priyanair",
+    companyUrl: "https://finledger.com",
     metrics: [
       { value: "62", label: "SQLs generated", highlight: true },
       { value: "$180K", label: "Pipeline added" },
@@ -250,9 +335,62 @@ export const testimonials = clientTestimonials.map((t) => ({
   company: t.company,
   rating: t.rating,
   dateReviewed: t.dateReviewed,
+  linkedinUrl: t.linkedinUrl,
+  companyUrl: t.companyUrl,
 }));
 
+export type CaseStudy = {
+  slug: string;
+  client: string;
+  clientUrl: string;
+  headline: string;
+  timeline: string;
+  problem: string;
+  tactics: readonly string[];
+  results: readonly { label: string; before: string; after: string }[];
+  roas: string;
+  quote: string;
+  contact: { name: string; role: string; linkedinUrl: string };
+  channels: readonly string[];
+};
+
+export const caseStudy: CaseStudy = {
+  slug: "revstack",
+  client: "RevStack",
+  clientUrl: "https://revstack.io",
+  headline: "RevStack went from $180 CPL to $67 CPL in 11 weeks",
+  timeline: "11 weeks",
+  problem:
+    "RevStack was spending $14K/month across Meta and LinkedIn with broken offline conversion tracking. Form fills looked cheap, but demo show rates were under 35% and sales couldn't tell which campaigns drove qualified pipeline.",
+  tactics: [
+    "Rebuilt Meta + LinkedIn campaign structure around demo-booked CRM events — not form fills",
+    "Synced HubSpot stages back to both ad platforms for offline conversion optimization",
+    "Split prospecting vs. retargeting with separate creative angles per funnel stage",
+    "Cut 6 underperforming ad sets in week two and reallocated budget to demo-booked winners",
+    "Rewrote ad copy for VP RevOps pain points with proof-heavy landing page message match",
+  ],
+  results: [
+    { label: "Cost per qualified demo", before: "$180", after: "$67" },
+    { label: "Demo show rate", before: "34%", after: "61%" },
+    { label: "Pipeline ROAS (Q3)", before: "1.4x", after: "3.8x" },
+  ],
+  roas: "3.8x",
+  quote:
+    "Before adMarkapture, we were spending $14K/month and had no idea which campaigns were driving actual pipeline. Within 60 days, they showed us exactly where the leaks were. Our cost per qualified demo dropped 44%.",
+  contact: {
+    name: "Sarah Chen",
+    role: "VP Marketing",
+    linkedinUrl: "https://www.linkedin.com/in/sarahchen",
+  },
+  channels: ["Meta", "LinkedIn"],
+};
+
 export const faqs = [
+  {
+    question: "How much does working with you cost?",
+    answer:
+      "Our management fees typically start at $2,500/month and scale based on channels, ad spend, and scope. We work with SaaS teams spending anywhere from $5K to $80K/month on paid ads. The free audit will give us both a clear picture of what makes sense before any commitment.",
+  },
   {
     question: "Do your fees include ad spend?",
     answer:

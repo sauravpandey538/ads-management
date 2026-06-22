@@ -10,8 +10,8 @@ import {
   type PlayfulCardVariant,
 } from "@/components/ui/playful-card";
 import { FadeIn } from "@/components/motion/fade-in";
+import { CtaPair } from "@/components/shared/cta-pair";
 import { PrimaryButton } from "@/components/shared/primary-button";
-import { CtaButton } from "@/components/shared/cta-button";
 import type { ServiceData } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -37,13 +37,8 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
               {service.headline}
             </h1>
             <p className="mt-6 text-lg text-ink/75 leading-relaxed">{service.subheadline}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <PrimaryButton href="/free-audit" size="lg">
-                {siteConfig.ctaPrimary}
-              </PrimaryButton>
-              <CtaButton href="/contact" variant="outline" size="lg">
-                Book a Strategy Call
-              </CtaButton>
+            <div className="mt-8">
+              <CtaPair layout="stack" />
             </div>
           </FadeIn>
 
@@ -187,7 +182,7 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
               </h2>
             </PlayfulCard>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <PrimaryButton href="/free-audit" size="lg">
+              <PrimaryButton href={siteConfig.ctaPrimaryHref} size="lg">
                 {siteConfig.ctaPrimary}
               </PrimaryButton>
               <Link

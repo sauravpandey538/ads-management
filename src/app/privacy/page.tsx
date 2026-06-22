@@ -39,7 +39,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: `For privacy-related questions or requests, email ${siteConfig.email} or call ${siteConfig.phone}.`,
+    body: `For privacy-related questions or requests, email ${siteConfig.email}. We respond within 4 business hours for calendar bookings and within one business day for email inquiries.`,
   },
 ] as const;
 

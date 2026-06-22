@@ -3,6 +3,7 @@
 import { Shield, Unlock, Users, Zap } from "lucide-react";
 import { Card2D } from "@/components/ui/card-2d";
 import { StarRating } from "@/components/shared/star-rating";
+import { PersonLinks } from "@/components/shared/person-links";
 import { ReviewSourceLink } from "@/components/shared/review-source-link";
 import { TrustHandshakeIllustration } from "@/components/illustrations/ad-illustrations";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -93,23 +94,14 @@ export function TrustSection() {
                     >
                       <p>&ldquo;{t.quote}&rdquo;</p>
                     </blockquote>
-                    <figcaption className="mt-4 flex items-center gap-3">
-                      <div className="size-10 rounded-full bg-sky/30 flex items-center justify-center font-bold text-ink border-2 border-ink/15">
-                        {t.name[0]}
-                      </div>
-                      <cite
-                        className="not-italic"
-                        itemProp="author"
-                        itemScope
-                        itemType="https://schema.org/Person"
-                      >
-                        <p className="font-semibold text-sm text-ink">
-                          <span itemProp="name">{t.name}</span>
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          <span itemProp="jobTitle">{t.role}</span>, {t.company}
-                        </p>
-                      </cite>
+                    <figcaption className="mt-4">
+                      <PersonLinks
+                        name={t.name}
+                        role={t.role}
+                        company={t.company}
+                        linkedinUrl={t.linkedinUrl}
+                        companyUrl={t.companyUrl}
+                      />
                     </figcaption>
                   </figure>
                 </Card2D>

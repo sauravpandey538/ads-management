@@ -1,6 +1,7 @@
 "use client";
 
 import { LeadForm } from "@/components/shared/lead-form";
+import { CtaPair } from "@/components/shared/cta-pair";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Float } from "@/components/motion/float";
 import { AdDashboardIllustration } from "@/components/illustrations/ad-illustrations";
@@ -12,23 +13,32 @@ type FinalCtaSectionProps = {
 export function FinalCtaSection({ compact = false }: FinalCtaSectionProps) {
   return (
     <section
-      id="book"
+      id="audit"
       className={compact ? "py-12" : "py-20 sm:py-28 bg-ink text-white"}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-1 lg:items-center">
           <FadeIn>
             <p className="text-sm font-semibold uppercase tracking-wider text-sun">
-              Ready when you are
+              Free ads audit
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl text-balance">
-              Book a call. Walk away with a free ads audit either way.
+              Get a written 90-day roadmap — no call required
             </h2>
             <p className="mt-4 text-white/70 text-lg leading-relaxed">
-              Tell us your ACV, funnel, and current spend. We&apos;ll send a
-              90-day roadmap with waste to cut, quick wins, and where to scale —
-              whether you hire us or not.
+              Tell us your ACV, funnel, and current spend. We&apos;ll send a full audit with waste to
+              cut, quick wins, and where to scale — delivered in 5 business days whether you hire us
+              or not.
             </p>
+            {!compact && (
+              <div className="mt-8">
+                <p className="text-sm text-white/60 mb-4">
+                  Ready to talk live instead? Use &quot;Book a Strategy Call&quot; — that&apos;s a
+                  separate 30-minute conversation, not this audit form.
+                </p>
+                <CtaPair layout="stack" />
+              </div>
+            )}
             {!compact && (
               <div className="mt-8 hidden lg:block">
                 <Float amplitude={6}>
@@ -39,7 +49,11 @@ export function FinalCtaSection({ compact = false }: FinalCtaSectionProps) {
           </FadeIn>
 
           <FadeIn delay={0.15} direction="left">
-            <LeadForm />
+            <LeadForm
+              title="Start your free audit"
+              description="Async delivery — we'll email your roadmap within 5 business days."
+              submitLabel="Send my free audit"
+            />
           </FadeIn>
         </div>
       </div>

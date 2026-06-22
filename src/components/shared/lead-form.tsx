@@ -47,7 +47,7 @@ type LeadFormProps = {
 
 export function LeadForm({
   title = "Get your free ads audit",
-  description = "Two steps. Under 60 seconds. Roadmap in 48 hours.",
+  description = "Two steps. Under 60 seconds. Roadmap in 5 business days.",
   submitLabel = "Send my free audit",
   className,
 }: LeadFormProps) {
@@ -91,7 +91,7 @@ export function LeadForm({
         </div>
         <h3 className="text-2xl font-bold text-ink">Audit request received!</h3>
         <p className="mt-3 text-ink/70 leading-relaxed">
-          We&apos;ll deliver your custom 90-day roadmap within 48 hours. Check
+          We&apos;ll deliver your custom 90-day roadmap within 5 business days. Check
           your inbox.
         </p>
         <Link
@@ -139,7 +139,7 @@ export function LeadForm({
               <Timer className="size-4 text-ink" />
             </span>
             <span className="text-sm font-medium text-ink">
-              Delivered within 48 hours
+              Delivered within 5 business days
             </span>
           </div>
           <div className="flex items-center gap-3 rounded-lg bg-white/80 border-2 border-ink/20 px-3 py-2.5">

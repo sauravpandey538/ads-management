@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { MobileStickyCta } from "@/components/layout/mobile-sticky-cta";
+import { ScrollMicroCta } from "@/components/shared/scroll-micro-cta";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <main className="flex-1 pb-20 md:pb-0">{children}</main>
         <SiteFooter />
         <MobileStickyCta />
+        <ScrollMicroCta />
       </body>
     </html>
   );

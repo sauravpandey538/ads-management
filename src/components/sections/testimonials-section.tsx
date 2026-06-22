@@ -38,10 +38,10 @@ export function TestimonialsSection() {
             See all testimonials
           </CtaButton>
           <Link
-            href="/free-audit"
+            href="/case-studies/revstack"
             className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
           >
-            Get your custom 90-day plan
+            Read RevStack case study
             <ArrowUpRight className="size-4" />
           </Link>
         </FadeIn>

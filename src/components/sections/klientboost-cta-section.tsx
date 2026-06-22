@@ -1,13 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { Shield, Timer, Zap } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
-import { PrimaryButton } from "@/components/shared/primary-button";
-import { CtaButton } from "@/components/shared/cta-button";
+import { CtaPair } from "@/components/shared/cta-pair";
 import { PlayfulCard } from "@/components/ui/playful-card";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
-import { siteConfig } from "@/lib/site-config";
+import { Shield, Timer, Zap } from "lucide-react";
 
 const trustPoints = [
   { icon: Timer, text: "90-day proof window" },
@@ -32,13 +29,8 @@ export function KlientBoostCtaSection() {
               Start with a free audit. Keep the 90-day roadmap even if we&apos;re not the right fit.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <PrimaryButton href="/free-audit" size="lg">
-                {siteConfig.ctaPrimary}
-              </PrimaryButton>
-              <CtaButton href="/contact" variant="outline" size="lg">
-                Book a Strategy Call
-              </CtaButton>
+            <div className="mt-8">
+              <CtaPair />
             </div>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">

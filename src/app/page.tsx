@@ -2,6 +2,7 @@ import { ConversionJourneySection } from "@/components/sections/conversion-journ
 import { AntiWasteSection } from "@/components/sections/anti-waste-section";
 import { SaasExpertiseSection } from "@/components/sections/saas-expertise-section";
 import { ProcessSection } from "@/components/sections/process-section";
+import { QualifierSection } from "@/components/sections/qualifier-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { TrustSection } from "@/components/sections/trust-section";
 import { FaqSection } from "@/components/sections/channels-faq-section";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <AntiWasteSection />
       <SaasExpertiseSection />
       <ProcessSection />
+      <QualifierSection />
       <TestimonialsSection />
       <TrustSection />
       <AuditTeaserSection />

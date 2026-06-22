@@ -43,7 +43,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: `Questions about these terms? Email ${siteConfig.email} or call ${siteConfig.phone}.`,
+    body: `Questions about these terms? Email ${siteConfig.email}.`,
   },
 ] as const;
 

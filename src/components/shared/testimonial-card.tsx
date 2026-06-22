@@ -6,6 +6,7 @@ import { StarRating } from "@/components/shared/star-rating";
 import { Card2D } from "@/components/ui/card-2d";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { Button } from "@/components/ui/button";
+import { PersonLinks } from "@/components/shared/person-links";
 import type { ClientTestimonial } from "@/lib/site-config";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -97,19 +98,14 @@ export function TestimonialCard({
               >
                 <p>&ldquo;{testimonial.quote}&rdquo;</p>
               </blockquote>
-              <footer className="mt-2">
-                <cite
-                  className="text-xs text-muted-foreground not-italic"
-                  itemProp="author"
-                  itemScope
-                  itemType="https://schema.org/Person"
-                >
-                  <span itemProp="name">{testimonial.contact.name}</span>
-                  {", "}
-                  <span itemProp="jobTitle">{testimonial.contact.role}</span>
-                  {" · "}
-                  <span>{testimonial.company}</span>
-                </cite>
+              <footer className="mt-3">
+                <PersonLinks
+                  name={testimonial.contact.name}
+                  role={testimonial.contact.role}
+                  company={testimonial.company}
+                  linkedinUrl={testimonial.linkedinUrl}
+                  companyUrl={testimonial.companyUrl}
+                />
               </footer>
             </div>
           </div>

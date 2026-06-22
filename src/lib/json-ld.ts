@@ -14,7 +14,6 @@ export function organizationReviewJsonLd() {
     name: siteConfig.name,
     description: siteConfig.description,
     email: siteConfig.email,
-    telephone: siteConfig.phone,
     url: siteUrl,
     sameAs: externalProfiles,
     aggregateRating: {

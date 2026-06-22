@@ -8,6 +8,7 @@ const footerGroups = [
     links: [
       { href: "/about", label: "About" },
       { href: "/testimonials", label: "Testimonials" },
+      { href: "/case-studies/revstack", label: "RevStack Case Study" },
       { href: "/contact", label: "Contact" },
     ],
   },
@@ -77,7 +78,7 @@ export function SiteFooter() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="font-medium">{siteConfig.phone}</li>
+              <li className="font-medium leading-relaxed">{siteConfig.calendarResponse}</li>
             </ul>
           </div>
         </div>

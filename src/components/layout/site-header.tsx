@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { ChevronDown, Menu } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
@@ -15,6 +13,8 @@ import { CtaButton } from "@/components/shared/cta-button";
 import { navLinks, siteConfig } from "@/lib/site-config";
 import { serviceSlugs, services } from "@/lib/services-data";
 import { cn } from "@/lib/utils";
+import { ChevronDown, Menu } from "lucide-react";
+import { useState } from "react";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -34,7 +34,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-5 lg:gap-6 md:flex">
           <div className="relative group">
             <Link
               href="/services"
@@ -68,14 +68,15 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <Link
-            href="/contact"
-            className={cn(buttonVariants({ variant: "ghost" }), "rounded-full")}
+            href={siteConfig.ctaSecondaryHref}
+            className={cn(buttonVariants({ variant: "ghost" }), "rounded-full text-xs lg:text-sm")}
+            title={siteConfig.ctaSecondaryHint}
           >
             {siteConfig.ctaSecondary}
           </Link>
-          <CtaButton size="lg" />
+          <CtaButton href={siteConfig.ctaPrimaryHref} size="lg" />
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -110,22 +111,29 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-lg px-3 py-2 text-lg font-medium hover:bg-muted"
-                  )}
+                  className="rounded-lg px-3 py-2 text-lg font-medium hover:bg-muted"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-lg font-medium hover:bg-muted"
-              >
-                Contact
-              </Link>
-              <div className="pt-4">
-                <CtaButton className="w-full justify-center" />
+              <div className="pt-4 space-y-3">
+                <CtaButton
+                  href={siteConfig.ctaPrimaryHref}
+                  className="w-full justify-center"
+                />
+                <p className="text-center text-xs text-muted-foreground px-2">
+                  {siteConfig.ctaPrimaryHint}
+                </p>
+                <CtaButton
+                  href={siteConfig.ctaSecondaryHref}
+                  variant="outline"
+                  className="w-full justify-center"
+                >
+                  {siteConfig.ctaSecondary}
+                </CtaButton>
+                <p className="text-center text-xs text-muted-foreground px-2">
+                  {siteConfig.ctaSecondaryHint}
+                </p>
               </div>
             </nav>
           </SheetContent>
