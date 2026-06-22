@@ -1,6 +1,6 @@
 import type { SimpleIcon } from "simple-icons";
 
-export type ServiceSlug = "meta" | "instagram" | "youtube" | "linkedin" | "google";
+export type ServiceSlug = "meta" | "youtube" | "google";
 
 export type ServiceResult = {
   company: string;
@@ -41,7 +41,7 @@ export const services: Record<ServiceSlug, ServiceData> = {
     tabLabel: "Meta",
     headline: "Meta lead gen campaigns that fill your pipeline — not your retargeting graveyard",
     subheadline:
-      "Facebook & Instagram performance marketing built for B2B: lookalikes from closed-won, creative sprints, and exclusions that stop paying for junk leads.",
+      "Facebook & Meta performance marketing built for B2B: lookalikes from closed-won, creative sprints, and exclusions that stop paying for junk leads.",
     icon: "meta",
     color: "bg-[#0081FB]/15",
     badgeVariant: "flag",
@@ -123,97 +123,6 @@ export const services: Record<ServiceSlug, ServiceData> = {
         { label: "Retarget CVR", value: "8.4%", change: "+18%" },
       ],
       chartLabel: "Weekly qualified demos",
-    },
-  },
-  instagram: {
-    slug: "instagram",
-    name: "Instagram Ads",
-    shortName: "Instagram",
-    tabLabel: "Instagram",
-    headline: "Instagram lead gen that looks native — and converts like landing pages",
-    subheadline:
-      "Performance marketing on Instagram for B2B: Reels, Stories, and feed placements engineered for qualified lead capture and demo paths that match your offer.",
-    icon: "instagram",
-    color: "bg-gradient-to-br from-[#F58529]/20 via-[#DD2A7B]/15 to-[#8134AF]/15",
-    badgeVariant: "stamp",
-    badgeText: "Reels + Stories",
-    overview:
-      "Instagram is where SaaS brands build familiarity before the demo. We run placement-specific creative — Reels for cold, Stories for retargeting, feed for proof-heavy angles — all tied to the same pipeline metrics.",
-    painPoints: [
-      "Repurposed Facebook creative that feels off-platform",
-      "Reels getting views but zero demo page visits",
-      "Story ads with broken swipe-up message match",
-      "No separation between TOFU awareness and BOFU retargeting",
-    ],
-    approach: [
-      {
-        title: "Placement-native creative",
-        description:
-          "Reels get hook-first 15s cuts; Stories get urgency + social proof; feed gets comparison and case-study angles.",
-      },
-      {
-        title: "Creator-style UGC",
-        description:
-          "Founder-led and customer-quote formats that outperform polished studio ads for dev tools and PLG SaaS.",
-      },
-      {
-        title: "Engagement retargeting",
-        description:
-          "Video viewers, profile visitors, and engagers fed into demo-focused retargeting within 7-day windows.",
-      },
-      {
-        title: "Landing page parity",
-        description:
-          "Every ad promise mirrored on the landing page — headline, proof, and CTA — to protect CVR.",
-      },
-    ],
-    deliverables: [
-      "Placement-specific campaign structure",
-      "Reels + Stories creative pipeline",
-      "Engagement-based retargeting pools",
-      "Landing page message-match audit",
-      "Bi-weekly creative refresh cadence",
-    ],
-    results: [
-      {
-        company: "DevPulse",
-        metric: "-44%",
-        label: "Cost per trial",
-        detail: "Reels-first creative + trial retargeting on Stories.",
-      },
-      {
-        company: "LedgerPro",
-        metric: "2.9x",
-        label: "Demo ROAS",
-        detail: "UGC-style Reels outperforming studio ads 3:1.",
-      },
-      {
-        company: "FinLedger",
-        metric: "19",
-        label: "Demos from Reels",
-        detail: "In 60 days from $6K/mo Instagram spend.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Instagram vs Meta — separate campaigns?",
-        answer:
-          "We often run Instagram as a placement focus within Meta, but with placement-specific creative and budget splits when Reels or Stories outperform feed.",
-      },
-      {
-        question: "Do we need video for Instagram?",
-        answer:
-          "Reels and Stories strongly favor video. We produce lightweight motion graphics and UGC-style cuts — no Hollywood budget required.",
-      },
-    ],
-    dashboard: {
-      title: "Instagram Ads Overview",
-      kpis: [
-        { label: "Reels CTR", value: "2.1%", change: "+67%" },
-        { label: "Story CVR", value: "6.2%", change: "+31%" },
-        { label: "Cost / Trial", value: "$89", change: "-44%" },
-      ],
-      chartLabel: "Placement performance",
     },
   },
   youtube: {
@@ -305,97 +214,6 @@ export const services: Record<ServiceSlug, ServiceData> = {
         { label: "Pipeline ROAS", value: "4.1x", change: "+29%" },
       ],
       chartLabel: "Video engagement funnel",
-    },
-  },
-  linkedin: {
-    slug: "linkedin",
-    name: "LinkedIn Ads",
-    shortName: "LinkedIn",
-    tabLabel: "LinkedIn",
-    headline: "LinkedIn lead gen that reaches the exact title signing your checks",
-    subheadline:
-      "ABM and title-targeted performance marketing on LinkedIn — built for demo-led B2B lead generation through long evaluation cycles.",
-    icon: "linkedin",
-    color: "bg-[#0A66C2]/12",
-    badgeVariant: "pin",
-    badgeText: "ABM + Titles",
-    overview:
-      "LinkedIn is precision targeting for B2B. We map personas to campaign tiers, run ABM against named accounts, and use document/thought-leader formats to hold attention through 6–12 week cycles.",
-    painPoints: [
-      "Targeting too broad — paying for junior titles with no budget authority",
-      "Single-message ads across awareness and decision stages",
-      "No ABM sync from CRM target account lists",
-      "Lead gen forms with no sales follow-up SLA",
-    ],
-    approach: [
-      {
-        title: "Persona-tier campaigns",
-        description:
-          "Separate ad sets for economic buyer, champion, and influencer — each with stage-appropriate messaging.",
-      },
-      {
-        title: "ABM list orchestration",
-        description:
-          "CRM target accounts synced weekly; matched audiences + company exclusions for non-ICP bleed.",
-      },
-      {
-        title: "Document & TL ads",
-        description:
-          "Gated guides and founder POV posts that warm accounts before demo CTAs in retargeting.",
-      },
-      {
-        title: "CRM-connected lead routing",
-        description:
-          "Lead gen forms mapped to Salesforce/HubSpot with scoring rules and sales SLAs.",
-      },
-    ],
-    deliverables: [
-      "Persona & ABM campaign architecture",
-      "Document ad creative + landing paths",
-      "Matched audience refresh cadence",
-      "Lead gen form + CRM integration",
-      "Weekly bid & audience optimization",
-    ],
-    results: [
-      {
-        company: "FinLedger",
-        metric: "62",
-        label: "SQLs in Q1",
-        detail: "ABM + retargeting across 6-week cycles.",
-      },
-      {
-        company: "RevStack",
-        metric: "-38%",
-        label: "Cost per SQL",
-        detail: "Title narrowing + document ad warm-up sequence.",
-      },
-      {
-        company: "SalesForge",
-        metric: "$180K",
-        label: "Pipeline generated",
-        detail: "From $22K/mo LinkedIn spend.",
-      },
-    ],
-    faqs: [
-      {
-        question: "Is LinkedIn too expensive for SaaS?",
-        answer:
-          "CPMs are higher — but so is ICP precision. We optimize for cost-per-SQL and pipeline ROAS, not CPL alone.",
-      },
-      {
-        question: "Lead gen forms or landing pages?",
-        answer:
-          "Depends on ACV and sales motion. High-touch demo-led → landing pages. Mid-market with fast follow-up → forms with CRM routing.",
-      },
-    ],
-    dashboard: {
-      title: "LinkedIn Ads Overview",
-      kpis: [
-        { label: "SQL Volume", value: "62", change: "+48%" },
-        { label: "Cost / SQL", value: "$354", change: "-38%" },
-        { label: "ABM Match Rate", value: "91%", change: "+15%" },
-      ],
-      chartLabel: "Pipeline by persona tier",
     },
   },
   google: {
@@ -493,7 +311,7 @@ export const services: Record<ServiceSlug, ServiceData> = {
 
 export const serviceSlugs = Object.keys(services) as ServiceSlug[];
 
-export const heroTabSlugs: ServiceSlug[] = ["meta", "youtube", "instagram"];
+export const heroTabSlugs: ServiceSlug[] = ["meta", "youtube", "google"];
 
 import type { BrandLogoEntry, BrandSlug } from "@/components/shared/brand-logo";
 

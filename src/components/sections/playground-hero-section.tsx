@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 const tabIcons: Record<string, string> = {
   meta: "📘",
   youtube: "▶️",
-  instagram: "📸",
+  google: "🔍",
 };
 
 /** Playground-style hero: centered headline, tabbed dashboard mockup, side doodles. */

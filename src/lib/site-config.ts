@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "adMarkapture",
   tagline: "Lead Generation & Performance Marketing",
   description:
-    "Performance marketing agency for B2B SaaS — lead generation campaigns across Meta, LinkedIn, YouTube & Google. Optimized for qualified leads, demos, and revenue. Not vanity clicks.",
+    "Performance marketing agency for B2B SaaS — lead generation campaigns across Meta, YouTube & Google. Optimized for qualified leads, demos, and revenue. Not vanity clicks.",
   email: "support@admarkapture.com",
   /** Full Cal.com URL — set NEXT_PUBLIC_CALENDAR_URL in .env.local */
   calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "",
@@ -109,7 +109,7 @@ export const teamIntro = {
     "Every person on your account has run B2B lead generation campaigns before — not just managed tickets.",
   body: [
     "We're a small, senior team by design. No junior buyers learning on your budget. No rotating cast of account managers. You work directly with the people optimizing your campaigns.",
-    "Combined, we've managed $28M+ in performance ad spend and shipped lead gen creative across Meta, LinkedIn, YouTube, and Google — always tied back to qualified leads, demos, and revenue.",
+    "Combined, we've managed $28M+ in performance ad spend and shipped lead gen creative across Meta, YouTube, and Google — always tied back to qualified leads, demos, and revenue.",
   ],
 } as const;
 
@@ -185,7 +185,7 @@ export const proofBar = [
 export const auditDeliverables = [
   "Full breakdown of where your lead gen spend is leaking",
   "Attribution gaps costing you qualified lead visibility",
-  "Channel-specific fix roadmap (Meta / YouTube / LinkedIn / Google)",
+  "Channel-specific fix roadmap (Meta / YouTube / Google)",
   "Benchmark: how your CPL compares to similar B2B SaaS campaigns",
   "Delivered within 5 business days — yours to keep, no strings attached",
 ] as const;
@@ -202,9 +202,7 @@ export const auditSpendOptions = [
 /** Channels the audit can focus on — matches /services */
 export const auditChannelOptions = [
   { id: "meta", label: "Meta Ads" },
-  { id: "instagram", label: "Instagram Ads" },
   { id: "youtube", label: "YouTube Ads" },
-  { id: "linkedin", label: "LinkedIn Ads" },
   { id: "google", label: "Google Ads" },
   { id: "unsure", label: "I'm not sure" },
 ] as const;
@@ -273,7 +271,7 @@ export const auditIntakeQuestions = [
   {
     category: "Campaign setup",
     items: [
-      "Which channels you run or want to test (Meta, LinkedIn, YouTube, Google)",
+      "Which channels you run or want to test (Meta, YouTube, Google)",
       "CRM platform and whether offline conversions are wired to ad platforms",
       "Current cost per lead or demo (if you know it)",
       "Biggest challenge — high CPL, junk leads, bad tracking, wrong channels, etc.",
@@ -442,16 +440,10 @@ export function getPrimaryReviewPlatform(): ReviewPlatform {
 
 export const channels = [
   {
-    name: "Meta & Instagram",
+    name: "Meta Ads",
     description:
       "Lead gen and retargeting campaigns with creative that converts cold B2B traffic.",
     color: "bg-sky/30 text-ink",
-  },
-  {
-    name: "LinkedIn Ads",
-    description:
-      "Title, company, and ABM targeting for demo-led B2B lead generation.",
-    color: "bg-coral/20 text-ink",
   },
   {
     name: "YouTube Ads",
@@ -520,11 +512,11 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
     company: "RevStack",
     vertical: "Revenue SaaS",
     spend: "$14K/mo",
-    channels: ["Meta", "LinkedIn"],
+    channels: ["Meta", "Google"],
     timeline: "90 days",
     headline: "47 qualified demos in 90 days",
     issue:
-      "RevStack was spending on broad Meta and LinkedIn campaigns with broken offline conversion tracking. Sales saw MQLs in HubSpot, but ads optimized on form fills — so CPL looked fine while demo show rates cratered.",
+      "RevStack was spending on broad Meta and Google campaigns with broken offline conversion tracking. Sales saw MQLs in HubSpot, but ads optimized on form fills — so CPL looked fine while demo show rates cratered.",
     approach:
       "We rebuilt campaign structure around demo-booked events, split prospecting vs. retargeting, and synced CRM stages back to both platforms. Creative was rewritten for VP RevOps pain points, not generic SaaS hooks.",
     progress:
@@ -574,13 +566,13 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
     company: "FinLedger",
     vertical: "Finance SaaS",
     spend: "$22K/mo",
-    channels: ["LinkedIn", "Meta"],
+    channels: ["Meta", "Google"],
     timeline: "Q1 (6 weeks live)",
     headline: "$180K pipeline in Q1",
     issue:
-      "FinLedger's LinkedIn ABM was reaching the right titles but not the buying committee. Retargeting was fragmented across Meta and LinkedIn with no orchestration, so CFO-level stakeholders never saw proof-heavy creative.",
+      "FinLedger's Google search campaigns were reaching high-intent buyers, but Meta retargeting was fragmented with no orchestration — so warm accounts never saw proof-heavy creative before demo requests.",
     approach:
-      "We built a 6-week ABM cycle: LinkedIn for account penetration, Meta for retargeting site visitors and engagers, and sequential creative by funnel stage — problem, proof, product. Offline SQL events became the primary optimization signal.",
+      "We built a 6-week cycle: Google for high-intent capture, Meta for retargeting site visitors and engagers, and sequential creative by funnel stage — problem, proof, product. Offline SQL events became the primary optimization signal.",
     progress:
       "Q1 closed with $180K net-new pipeline and 62 SQLs from paid. Cycle two is live with expanded target accounts and a 15% budget shift toward retargeting after week three engagement signals.",
     quote:
@@ -633,9 +625,9 @@ export const caseStudy: CaseStudy = {
   headline: "RevStack went from $180 CPL to $67 CPL in 11 weeks",
   timeline: "11 weeks",
   problem:
-    "RevStack was spending $14K/month across Meta and LinkedIn with broken offline conversion tracking. Form fills looked cheap, but demo show rates were under 35% and sales couldn't tell which campaigns drove qualified pipeline.",
+    "RevStack was spending $14K/month across Meta and Google with broken offline conversion tracking. Form fills looked cheap, but demo show rates were under 35% and sales couldn't tell which campaigns drove qualified pipeline.",
   tactics: [
-    "Rebuilt Meta + LinkedIn campaign structure around demo-booked CRM events — not form fills",
+    "Rebuilt Meta + Google campaign structure around demo-booked CRM events — not form fills",
     "Synced HubSpot stages back to both ad platforms for offline conversion optimization",
     "Split prospecting vs. retargeting with separate creative angles per funnel stage",
     "Cut 6 underperforming ad sets in week two and reallocated budget to demo-booked winners",
@@ -654,7 +646,7 @@ export const caseStudy: CaseStudy = {
     role: "VP Marketing",
     linkedinUrl: "https://www.linkedin.com/in/sarahchen",
   },
-  channels: ["Meta", "LinkedIn"],
+  channels: ["Meta", "Google"],
 };
 
 export const faqs = [
@@ -676,7 +668,7 @@ export const faqs = [
   {
     question: "Which platforms do you manage?",
     answer:
-      "Meta (Facebook & Instagram), LinkedIn, YouTube, and Google Ads. We focus exclusively on performance marketing and lead generation for B2B SaaS — no SEO, no web dev side quests.",
+      "Meta, YouTube, and Google Ads. We focus exclusively on performance marketing and lead generation for B2B SaaS — no SEO, no web dev side quests.",
   },
   {
     question: "How fast will we see results?",

@@ -44,7 +44,7 @@ const saasSignals: {
   {
     title: "Channel orchestration",
     description:
-      "Google captures demand. LinkedIn targets titles. Meta retargets. YouTube educates. Each has a job.",
+      "Google captures demand. Meta retargets. YouTube educates. Each has a job.",
     badge: "Full funnel",
     variant: "flag",
     tone: "neutral",

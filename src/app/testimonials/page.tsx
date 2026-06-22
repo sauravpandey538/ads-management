@@ -12,7 +12,7 @@ import { clientRating, clientTestimonials } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Client Testimonials",
   description:
-    "SaaS lead generation testimonials with full context — the issue, our approach, current progress, and CRM-linked results across Meta, LinkedIn, YouTube, and Google.",
+    "SaaS lead generation testimonials with full context — the issue, our approach, current progress, and CRM-linked results across Meta, YouTube, and Google.",
 };
 
 export default function TestimonialsPage() {

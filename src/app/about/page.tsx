@@ -60,7 +60,7 @@ export default function AboutPage() {
               We built adMarkapture because B2B founders kept hiring generalist agencies that
               optimized for clicks while qualified lead volume flatlined. We do one thing:
               performance marketing and lead generation campaigns for B2B SaaS across Meta,
-              Instagram, LinkedIn, YouTube, and Google — with full-funnel accountability.
+              YouTube, and Google — with full-funnel accountability.
             </p>
           </FadeIn>
         </div>

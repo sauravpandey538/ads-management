@@ -16,9 +16,7 @@ const footerGroups = [
     title: "Lead Gen Channels",
     links: [
       { href: "/services/meta", label: "Meta Ads" },
-      { href: "/services/instagram", label: "Instagram Ads" },
       { href: "/services/youtube", label: "YouTube Ads" },
-      { href: "/services/linkedin", label: "LinkedIn Ads" },
       { href: "/services/google", label: "Google Ads" },
     ],
   },
@@ -46,8 +44,8 @@ export function SiteFooter() {
               <span className="font-bold text-ink text-lg">{siteConfig.name}</span>
             </Link>
             <p className="mt-4 text-sm text-ink/65 leading-relaxed max-w-xs">
-              Performance marketing for B2B SaaS. Lead generation campaigns across Meta, LinkedIn,
-              YouTube & Google — optimized for qualified leads, not clicks.
+              Performance marketing for B2B SaaS. Lead generation campaigns across Meta, YouTube
+              & Google — optimized for qualified leads, not clicks.
             </p>
             <PlayfulBadge variant="chip" className="mt-4">
               Lead gen obsessed
