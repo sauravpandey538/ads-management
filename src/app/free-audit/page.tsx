@@ -5,12 +5,12 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { PlayfulCard } from "@/components/ui/playful-card";
 import { PageShell } from "@/components/layout/page-shell";
-import { auditDeliverables, auditTestimonial } from "@/lib/site-config";
+import { auditDeliverables, auditIntakeQuestions, auditTestimonial } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Free Ads Audit",
+  title: "Free Lead Gen Audit",
   description:
-    "Get a free 90-day SaaS paid ads roadmap — waste analysis, quick wins, and channel priorities. Keep it even if you don't hire us.",
+    "Get a free 90-day performance marketing roadmap — lead gen waste analysis, quick wins, and channel priorities. Keep it even if you don't hire us.",
 };
 
 export default function FreeAuditPage() {
@@ -23,11 +23,11 @@ export default function FreeAuditPage() {
               Async audit · No call required
             </PlayfulBadge>
             <h1 className="text-4xl font-bold text-ink sm:text-5xl text-balance max-w-3xl mx-auto leading-tight">
-              Your free SaaS ads audit — written roadmap, delivered by email
+              Your free lead gen audit — written roadmap, delivered by email
             </h1>
             <p className="mt-5 text-lg text-ink/65 max-w-2xl mx-auto leading-relaxed">
-              We&apos;ll map waste to cut, quick wins to grab, and channels to scale — delivered in 5
-              business days whether you hire us or not.
+              We&apos;ll map lead gen waste to cut, quick wins to grab, and campaigns to scale —
+              delivered in 5 business days whether you hire us or not.
             </p>
             <p className="mt-3 text-sm text-ink/55 max-w-xl mx-auto">
               Want a live conversation instead?{" "}
@@ -62,6 +62,41 @@ export default function FreeAuditPage() {
           </FadeIn>
 
           <FadeIn delay={0.08} className="mt-8">
+            <PlayfulCard variant="ticket" tone="neutral" className="p-6 sm:p-8">
+              <h2 className="text-xl font-bold text-ink">
+                What we&apos;ll ask you (3 quick steps)
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                These answers let us tailor your audit — spend analysis, tracking review, and
+                channel recommendations specific to your funnel.
+              </p>
+              <div className="mt-6 space-y-6">
+                {auditIntakeQuestions.map((group) => (
+                  <div key={group.category}>
+                    <p className="text-sm font-bold text-primary uppercase tracking-wide">
+                      {group.category}
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-sm text-ink/80 leading-relaxed"
+                        >
+                          <Check
+                            className="size-4 shrink-0 text-primary stroke-[3] mt-0.5"
+                            aria-hidden
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </PlayfulCard>
+          </FadeIn>
+
+          <FadeIn delay={0.12} className="mt-8">
             <blockquote className="rounded-xl border-2 border-ink/15 bg-white p-6 text-center card-2d-sm shadow-none">
               <p className="text-ink leading-relaxed italic">
                 &ldquo;{auditTestimonial.quote}&rdquo;
@@ -81,8 +116,8 @@ export default function FreeAuditPage() {
           <FadeIn delay={0.1}>
             <LeadForm
               title="Start your audit"
-              description="Two quick steps — then we get to work."
-              submitLabel="Send my free audit"
+              description="Three quick steps — then we get to work on your roadmap."
+              submitLabel="Send my free lead gen audit"
             />
           </FadeIn>
         </div>

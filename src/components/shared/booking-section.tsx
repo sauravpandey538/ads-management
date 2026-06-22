@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CalendarDays, FileText } from "lucide-react";
 import { CalendarEmbed } from "@/components/shared/calendar-embed";
 import { SchedulePicker } from "@/components/shared/schedule-picker";
-import { FallbackContactForm } from "@/components/shared/fallback-contact-form";
+import { StrategyCallForm } from "@/components/shared/strategy-call-form";
 import { isCalendarConfigured } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
@@ -75,12 +75,12 @@ export function BookingSection() {
         </div>
       ) : (
         <div id="contact-fallback">
-          <FallbackContactForm
-            title="Confirm your booking request"
+          <StrategyCallForm
+            title="Confirm your strategy call"
             description={
               preferredSlot
-                ? `We'll reach out to confirm your preferred slot: ${preferredSlot}`
-                : "Share your details and preferred times — we'll respond within one business day."
+                ? `Tell us about your funnel — we'll confirm your slot: ${preferredSlot}`
+                : "Share a few details so we can make your 30-min call count."
             }
             preferredSlot={preferredSlot}
             onClearSlot={() => setPreferredSlot("")}

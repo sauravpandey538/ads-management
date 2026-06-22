@@ -12,8 +12,9 @@ export function MobileStickyCta() {
         <PrimaryButton
           href={siteConfig.ctaPrimaryHref}
           className="w-full justify-center text-[10px] sm:text-xs px-2"
+          badge={siteConfig.ctaPrimaryBadge}
         >
-          Free Audit
+          {siteConfig.ctaPrimary}
         </PrimaryButton>
         <CtaButton
           href={siteConfig.ctaSecondaryHref}

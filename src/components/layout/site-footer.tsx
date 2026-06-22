@@ -13,7 +13,7 @@ const footerGroups = [
     ],
   },
   {
-    title: "Paid Ads",
+    title: "Lead Gen Channels",
     links: [
       { href: "/services/meta", label: "Meta Ads" },
       { href: "/services/instagram", label: "Instagram Ads" },
@@ -25,7 +25,7 @@ const footerGroups = [
   {
     title: "Resources",
     links: [
-      { href: "/free-audit", label: "Free Ads Audit" },
+      { href: "/free-audit", label: "Lead Gen Audit" },
       { href: "/privacy", label: "Privacy Policy" },
       { href: "/terms", label: "Terms of Service" },
       { href: "/#faq", label: "FAQ" },
@@ -46,11 +46,11 @@ export function SiteFooter() {
               <span className="font-bold text-ink text-lg">{siteConfig.name}</span>
             </Link>
             <p className="mt-4 text-sm text-ink/65 leading-relaxed max-w-xs">
-              Paid ads for B2B SaaS. Meta, LinkedIn, YouTube & Google — optimized for pipeline, not
-              clicks.
+              Performance marketing for B2B SaaS. Lead generation campaigns across Meta, LinkedIn,
+              YouTube & Google — optimized for qualified leads, not clicks.
             </p>
             <PlayfulBadge variant="chip" className="mt-4">
-              Pipeline obsessed
+              Lead gen obsessed
             </PlayfulBadge>
           </div>
           {footerGroups.map((group) => (

@@ -12,7 +12,7 @@ import { clientRating, clientTestimonials } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Client Testimonials",
   description:
-    "SaaS paid ads testimonials with full context — the issue, our approach, current progress, and CRM-linked results across Meta, LinkedIn, YouTube, and Google.",
+    "SaaS lead generation testimonials with full context — the issue, our approach, current progress, and CRM-linked results across Meta, LinkedIn, YouTube, and Google.",
 };
 
 export default function TestimonialsPage() {
@@ -27,12 +27,12 @@ export default function TestimonialsPage() {
               CRM-verified outcomes
             </PlayfulBadge>
             <h1 className="text-4xl font-bold text-ink sm:text-5xl text-balance">
-              Testimonials that show up in your pipeline — not a slide deck
+              Testimonials that show up as qualified leads — not a slide deck
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Read the full story behind each client: what was broken, how we fixed it, and where
-              things stand today. Every number ties to demos, SQLs, trials, or revenue — because
-              that&apos;s what your CFO actually cares about.
+              things stand today. Every number ties to leads, SQLs, trials, or revenue — because
+              that&apos;s what performance marketing should prove.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <ReviewSourceLink variant="badge" />

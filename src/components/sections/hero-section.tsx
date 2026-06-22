@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-24">
         <FadeIn>
           <Badge className="mb-4 rounded-full bg-sun/40 text-ink hover:bg-sun/50 border-0">
-            SaaS Paid Ads Only — Meta, LinkedIn, YouTube & Google
+            Performance Marketing · Lead Generation — Meta, LinkedIn, YouTube & Google
           </Badge>
           <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl text-balance">
             You spend on ads.{" "}
@@ -23,7 +23,7 @@ export function HeroSection() {
             </span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
-            adMarkapture is the playful-but-serious paid ads agency for B2B
+            adMarkapture is the playful-but-serious performance marketing agency for B2B
             SaaS. We turn Meta, Instagram, LinkedIn, YouTube, and Google spend
             into qualified demos, trials, and pipeline — with zero vanity metric
             nonsense.

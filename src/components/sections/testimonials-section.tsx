@@ -17,11 +17,11 @@ export function TestimonialsSection() {
             Client testimonials
           </PlayfulBadge>
           <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl text-balance">
-            Real clients. Real pipeline numbers.
+            Real clients. Real lead gen numbers.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Every story includes what was broken, what we changed, and where things stand today —
-            tied to CRM metrics your team already tracks.
+            tied to qualified leads, SQLs, and revenue metrics your team already tracks.
           </p>
         </FadeIn>
 

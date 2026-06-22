@@ -15,7 +15,7 @@ const sections = [
   },
   {
     title: "How we use your information",
-    body: `We use your information to deliver your free ads audit, respond to inquiries, schedule strategy calls, and send follow-up communication related to your request. We do not sell your personal data to third parties.`,
+    body: `We use your information to deliver your free lead gen audit, respond to inquiries, schedule strategy calls, and send follow-up communication related to your request. We do not sell your personal data to third parties.`,
   },
   {
     title: "Legal basis & consent",

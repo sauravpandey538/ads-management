@@ -9,6 +9,8 @@ type CtaButtonProps = {
   size?: "default" | "lg";
   className?: string;
   children?: React.ReactNode;
+  /** Override offer badge on primary variant (defaults to siteConfig.ctaPrimaryBadge) */
+  badge?: string;
 };
 
 export function CtaButton({
@@ -17,12 +19,18 @@ export function CtaButton({
   size = "default",
   className,
   children,
+  badge,
 }: CtaButtonProps) {
   const label = children ?? siteConfig.ctaPrimary;
 
   if (variant === "primary") {
     return (
-      <PrimaryButton href={href} size={size} className={className}>
+      <PrimaryButton
+        href={href}
+        size={size}
+        className={className}
+        badge={badge ?? siteConfig.ctaPrimaryBadge}
+      >
         {label}
       </PrimaryButton>
     );

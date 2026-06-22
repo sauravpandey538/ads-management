@@ -15,10 +15,10 @@ const sections = [
   },
   {
     title: "Services",
-    body: `${siteConfig.name} provides B2B SaaS paid advertising management and related consulting services. Information on this website is for general marketing purposes and does not constitute a binding offer until a separate agreement is signed.`,
+    body: `${siteConfig.name} provides B2B performance marketing, lead generation campaign management, and related consulting services. Information on this website is for general marketing purposes and does not constitute a binding offer until a separate agreement is signed.`,
   },
   {
-    title: "Free ads audit",
+    title: "Free lead gen audit",
     body: `Our free audit is provided at no cost and with no obligation to purchase services. Audit deliverables, timelines, and scope may vary based on the information you provide. We reserve the right to decline requests that fall outside our service area or capacity.`,
   },
   {

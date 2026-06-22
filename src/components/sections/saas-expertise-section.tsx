@@ -35,7 +35,7 @@ const saasSignals: {
   {
     title: "Down-funnel optimization",
     description:
-      "Show rate, SQL quality, and pipeline velocity feed back into bids and budgets weekly.",
+      "Lead quality, SQL conversion, and pipeline velocity feed back into bids and budgets weekly.",
     badge: "CRM connected",
     variant: "pin",
     tone: "sky",
@@ -68,14 +68,14 @@ export function SaasExpertiseSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <FadeIn>
             <PlayfulBadge variant="pin" className="mb-4">
-              Do they understand my business?
+              Performance marketing
             </PlayfulBadge>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl text-balance">
-              We only do SaaS paid ads — so your funnel isn&apos;t our learning curve
+              Lead generation campaigns built for B2B — not generic traffic plays
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Trials, demos, multi-stakeholder buying, long cycles, and payback math — we&apos;ve
-              mapped hundreds of SaaS funnels. Your campaigns are built around how buyers decide,
+              CPL, lead quality, MQL-to-SQL conversion, and payback math — we&apos;ve mapped hundreds
+              of B2B funnels. Your performance marketing is built around qualified leads and revenue,
               not how ad reps want you to spend.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">

@@ -29,16 +29,16 @@ export function PlaygroundHeroSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <FadeIn>
           <PlayfulBadge variant="ticket" className="mb-6">
-            B2B SaaS · Paid Ads Only
+            Performance Marketing · Lead Generation
           </PlayfulBadge>
           <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] text-balance max-w-4xl mx-auto leading-[1.1]">
-            Paid ads management SaaS founders{" "}
+            Lead generation campaigns B2B teams{" "}
             <span className="text-play-blue-dark">actually trust</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We run paid ads for B2B SaaS companies that are tired of spending $15K/month and not
-            knowing which campaigns are actually filling their pipeline. No guesswork. No fluff. Just
-            qualified demos.
+            We run performance marketing for B2B SaaS companies tired of spending $15K/month and
+            not knowing which campaigns are actually generating qualified leads. No guesswork. No
+            fluff. Just measurable lead gen.
           </p>
           <CtaPair className="mt-8" />
           <div className="mt-5 flex justify-center">

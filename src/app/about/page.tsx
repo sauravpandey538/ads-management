@@ -18,14 +18,14 @@ import { PageShell } from "@/components/layout/page-shell";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet the adMarkapture team — SaaS paid media operators obsessed with pipeline, transparency, and protecting your budget.",
+    "Meet the adMarkapture team — performance marketing operators obsessed with lead generation, transparency, and protecting your budget.",
 };
 
 const values = [
   {
     icon: Target,
-    title: "Pipeline over vanity",
-    description: "If it doesn't show up in your CRM, we don't optimize for it. Period.",
+    title: "Leads over vanity",
+    description: "If it doesn't show up as a qualified lead in your CRM, we don't optimize for it. Period.",
   },
   {
     icon: Heart,
@@ -54,12 +54,13 @@ export default function AboutPage() {
               About adMarkapture
             </PlayfulBadge>
             <h1 className="text-4xl font-bold text-ink sm:text-5xl text-balance">
-              A paid ads agency that&apos;s serious about play — and your pipeline
+              A performance marketing agency serious about play — and your lead gen
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              We built adMarkapture because SaaS founders kept hiring generalist agencies that
-              optimized for clicks while demos flatlined. We do one thing: paid ads for B2B SaaS
-              across Meta, Instagram, LinkedIn, YouTube, and Google — with full-funnel accountability.
+              We built adMarkapture because B2B founders kept hiring generalist agencies that
+              optimized for clicks while qualified lead volume flatlined. We do one thing:
+              performance marketing and lead generation campaigns for B2B SaaS across Meta,
+              Instagram, LinkedIn, YouTube, and Google — with full-funnel accountability.
             </p>
           </FadeIn>
         </div>
@@ -78,7 +79,7 @@ export default function AboutPage() {
               <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   Most agencies say yes to everyone. We said no — to SEO, to web dev, to
-                  &quot;full-service&quot; scope creep. SaaS paid media has its own math: ACV,
+                  &quot;full-service&quot; scope creep. B2B lead generation has its own math: CPL,
                   payback, demo show rates, multi-stakeholder cycles.
                 </p>
                 <p>

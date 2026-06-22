@@ -12,7 +12,7 @@ export function AuditTeaserSection() {
             Free · No strings attached
           </PlayfulBadge>
           <h2 className="text-3xl font-bold text-ink sm:text-4xl text-balance">
-            Get your free ads audit — written roadmap, no call needed
+            Get your free lead gen audit — written roadmap, no call needed
           </h2>
           <p className="mt-4 text-lg text-ink/65">
             Tell us your funnel, spend, and what&apos;s broken. We&apos;ll email your audit within 5

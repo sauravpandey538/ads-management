@@ -9,7 +9,7 @@ type LogoMarqueeProps = {
 
 export function LogoMarquee({
   className,
-  title = "Trusted by SaaS teams who measure pipeline, not clicks",
+  title = "Trusted by B2B teams who measure leads, not clicks",
 }: LogoMarqueeProps) {
   return (
     <div className={cn("py-10", className)}>

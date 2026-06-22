@@ -22,7 +22,7 @@ export function CeoIntroSection() {
             From our CEO
           </PlayfulBadge>
           <h2 className="text-3xl font-bold text-ink sm:text-4xl text-balance max-w-2xl">
-            Built by someone who&apos;s owned the pipeline number
+            Built by someone who&apos;s owned the lead generation number
           </h2>
         </FadeIn>
 

@@ -21,7 +21,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 group">
           <span className="flex size-9 items-center justify-center rounded-xl bg-sun/50 text-lg font-bold text-ink playful-shadow transition-transform group-hover:-rotate-3">
             A
@@ -57,21 +57,26 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
-          {navLinks.filter((l) => l.href !== "/services").map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks
+            .filter((l) => l.href !== "/services")
+            .map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href={siteConfig.ctaSecondaryHref}
-            className={cn(buttonVariants({ variant: "ghost" }), "rounded-full text-xs lg:text-sm")}
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "rounded-full text-xs lg:text-sm",
+            )}
             title={siteConfig.ctaSecondaryHint}
           >
             {siteConfig.ctaSecondary}
@@ -83,18 +88,35 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               buttonVariants({ variant: "outline", size: "icon" }),
-              "rounded-full md:hidden"
+              "rounded-full md:hidden",
             )}
           >
             <Menu className="size-5" />
             <span className="sr-only">Open menu</span>
           </SheetTrigger>
-          <SheetContent side="right" className="w-80">
+          <SheetContent side="right" className="w-80 px-4 h-fit">
             <SheetHeader>
-              <SheetTitle>{siteConfig.name}</SheetTitle>
+              <SheetTitle>
+                {" "}
+                <Link href="/" className="flex items-center gap-2 group">
+                  <span className="flex size-9 items-center justify-center rounded-xl bg-sun/50 text-lg font-bold text-ink playful-shadow transition-transform group-hover:-rotate-3">
+                    A
+                  </span>
+                  <div className="leading-tight">
+                    <span className="block font-bold text-ink">
+                      {siteConfig.name}
+                    </span>
+                    <span className="hidden text-xs text-muted-foreground sm:block">
+                      {siteConfig.tagline}
+                    </span>
+                  </div>
+                </Link>
+              </SheetTitle>
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-2">
-              <p className="px-3 text-xs font-semibold uppercase text-muted-foreground">Services</p>
+              <p className="px-3 text-xs font-semibold uppercase text-muted-foreground">
+                Services
+              </p>
               {serviceSlugs.map((slug) => (
                 <Link
                   key={slug}
@@ -106,16 +128,18 @@ export function SiteHeader() {
                 </Link>
               ))}
               <div className="my-2 border-t border-border" />
-              {navLinks.filter((l) => l.href !== "/services").map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2 text-lg font-medium hover:bg-muted"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks
+                .filter((l) => l.href !== "/services")
+                .map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg px-3 py-2 text-lg font-medium hover:bg-muted"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               <div className="pt-4 space-y-3">
                 <CtaButton
                   href={siteConfig.ctaPrimaryHref}

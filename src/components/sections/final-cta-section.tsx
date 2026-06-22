@@ -20,15 +20,15 @@ export function FinalCtaSection({ compact = false }: FinalCtaSectionProps) {
         <div className="grid gap-12 lg:grid-cols-1 lg:items-center">
           <FadeIn>
             <p className="text-sm font-semibold uppercase tracking-wider text-sun">
-              Free ads audit
+              Free lead gen audit
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl text-balance">
               Get a written 90-day roadmap — no call required
             </h2>
             <p className="mt-4 text-white/70 text-lg leading-relaxed">
-              Tell us your ACV, funnel, and current spend. We&apos;ll send a full audit with waste to
-              cut, quick wins, and where to scale — delivered in 5 business days whether you hire us
-              or not.
+              Tell us your ACV, funnel, and current spend. We&apos;ll send a full performance marketing
+              audit with lead gen waste to cut, quick wins, and campaigns to scale — delivered in 5
+              business days whether you hire us or not.
             </p>
             {!compact && (
               <div className="mt-8">
@@ -50,9 +50,9 @@ export function FinalCtaSection({ compact = false }: FinalCtaSectionProps) {
 
           <FadeIn delay={0.15} direction="left">
             <LeadForm
-              title="Start your free audit"
-              description="Async delivery — we'll email your roadmap within 5 business days."
-              submitLabel="Send my free audit"
+              title="Start your free lead gen audit"
+              description="Async delivery — we'll email your performance marketing roadmap within 5 business days."
+              submitLabel="Send my free lead gen audit"
             />
           </FadeIn>
         </div>

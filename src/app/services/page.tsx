@@ -10,9 +10,9 @@ import { serviceSlugs, services } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Paid Ads Services",
+  title: "Lead Generation Services",
   description:
-    "Dedicated paid ads services for B2B SaaS — Meta, Instagram, YouTube, LinkedIn, and Google. Deep expertise, channel-specific results.",
+    "Performance marketing and lead generation campaigns for B2B SaaS — Meta, Instagram, YouTube, LinkedIn, and Google. Channel-specific lead gen expertise.",
 };
 
 const badgeRotation: Array<"ticket" | "stamp" | "pin" | "flag" | "chip"> = [
@@ -30,17 +30,17 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <FadeIn className="max-w-3xl mb-14 sm:mb-16">
             <PlayfulBadge variant="stamp" className="mb-4">
-              Ads only — zero scope creep
+              Performance marketing · Lead gen only
             </PlayfulBadge>
             <h1 className="text-4xl font-bold text-ink sm:text-5xl text-balance">
-              One agency. Five channels. Every dollar tied to pipeline.
+              One agency. Five channels. Every campaign tied to qualified leads.
             </h1>
             <p className="mt-6 text-lg text-ink/70 leading-relaxed">
-              Each channel gets its own playbook, creative system, and results benchmark — because
-              Meta, YouTube, and LinkedIn don&apos;t behave the same way.
+              Each channel gets its own lead generation playbook, creative system, and CPL benchmark
+              — because Meta, YouTube, and LinkedIn don&apos;t convert the same way.
             </p>
             <div className="mt-8">
-              <PrimaryButton href="/free-audit" size="lg">
+              <PrimaryButton href="/free-audit" size="lg" badge={siteConfig.ctaPrimaryBadge}>
                 {siteConfig.ctaPrimary}
               </PrimaryButton>
             </div>

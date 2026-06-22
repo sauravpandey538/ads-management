@@ -178,11 +178,11 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
           <FadeIn className="text-center">
             <PlayfulCard variant="flag" tone="neutral" className="inline-block px-6 py-4 mb-8">
               <h2 className="text-xl font-bold text-ink sm:text-2xl text-balance">
-                Ready to scale {service.shortName} ads with pipeline accountability?
+                Ready to scale {service.shortName} lead gen with performance accountability?
               </h2>
             </PlayfulCard>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <PrimaryButton href={siteConfig.ctaPrimaryHref} size="lg">
+              <PrimaryButton href={siteConfig.ctaPrimaryHref} size="lg" badge={siteConfig.ctaPrimaryBadge}>
                 {siteConfig.ctaPrimary}
               </PrimaryButton>
               <Link

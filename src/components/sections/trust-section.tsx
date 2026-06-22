@@ -29,7 +29,7 @@ const trustPoints = [
   {
     icon: Users,
     title: "Partner, not vendor",
-    description: "We challenge assumptions, push back on bad ideas, and tie every decision to pipeline.",
+    description: "We challenge assumptions, push back on bad ideas, and tie every decision to lead quality and revenue.",
   },
 ] as const;
 
@@ -43,7 +43,7 @@ export function TrustSection() {
               Can I trust them?
             </p>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl text-balance">
-              The last ads agency you&apos;ll ever need to vet
+              The last performance marketing partner you&apos;ll ever need to vet
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               No black boxes. No bait-and-switch retainers. No &quot;trust us, impressions are up.&quot;

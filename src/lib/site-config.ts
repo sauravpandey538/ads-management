@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "adMarkapture",
-  tagline: "The SaaS Paid Ads Agency",
+  tagline: "Lead Generation & Performance Marketing",
   description:
-    "We run Meta, LinkedIn, YouTube & Google ads for B2B SaaS — built around demos, trials, and pipeline. Not clicks.",
+    "Performance marketing agency for B2B SaaS — lead generation campaigns across Meta, LinkedIn, YouTube & Google. Optimized for qualified leads, demos, and revenue. Not vanity clicks.",
   email: "support@admarkapture.com",
   /** Full Cal.com URL — set NEXT_PUBLIC_CALENDAR_URL in .env.local */
   calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "",
@@ -10,11 +10,12 @@ export const siteConfig = {
   calendarCalLink: process.env.NEXT_PUBLIC_CAL_CAL_LINK ?? "",
   calendarResponse:
     "Book directly via calendar — we respond within 4 business hours.",
-  ctaPrimary: "Get Your Free Ads Audit",
-  ctaPrimaryHint: "Written roadmap in 5 days · no call required",
+  ctaPrimary: "Get Your Lead Gen Audit",
+  ctaPrimaryBadge: "Free",
+  ctaPrimaryHint: "Campaign audit in 5 days · no call required",
   ctaPrimaryHref: "/free-audit",
   ctaSecondary: "Book a Strategy Call",
-  ctaSecondaryHint: "30-min live funnel review · pick a time",
+  ctaSecondaryHint: "30-min performance marketing review · pick a time",
   ctaSecondaryHref: "/contact",
 } as const;
 
@@ -45,11 +46,11 @@ export const founder = {
   /** Drop a headshot at public/team/alex-morgan.jpg to replace the SVG placeholder. */
   imageSrc: "/nabila.jpeg",
   bio: [
-    "I started adMarkapture after a decade inside SaaS marketing teams — watching great products lose pipeline to competitors who simply understood paid media better.",
-    "We built this agency for founders who are tired of generalist shops that optimize for clicks while demo volume flatlines. Every system we run today was battle-tested on real SaaS funnels — not e-commerce playbooks repackaged for B2B.",
+    "I started adMarkapture after a decade inside SaaS marketing teams — watching great products lose leads to competitors who simply ran better performance marketing campaigns.",
+    "We built this agency for founders tired of generalist shops that optimize for clicks while qualified lead volume flatlines. Every lead gen system we run today was battle-tested on real B2B funnels — not e-commerce playbooks repackaged for SaaS.",
   ],
   quote:
-    "Your ad budget is too important to hand to people who've never owned a SaaS pipeline number.",
+    "Your ad budget is too important to hand to people who've never owned a lead generation target.",
 } as const;
 
 export type TeamMember = {
@@ -66,8 +67,8 @@ export type TeamMember = {
 export const teamMembers: readonly TeamMember[] = [
   {
     name: "Jordan Lee",
-    title: "Head of Paid Media",
-    bio: "Runs Meta, YouTube, and Google accounts with a kill-fast testing cadence. Former performance lead at Notion.",
+    title: "Head of Performance Media",
+    bio: "Runs Meta, YouTube, and Google lead gen campaigns with a kill-fast testing cadence. Former performance lead at Notion.",
     linkedinUrl: "https://www.linkedin.com/in/jordanlee",
     imageSrc: "/team/jordan-lee.svg",
     formerRole: "Performance Marketing Lead",
@@ -85,7 +86,7 @@ export const teamMembers: readonly TeamMember[] = [
   {
     name: "Marcus Chen",
     title: "Growth Analyst & Attribution",
-    bio: "Connects ad spend to CRM outcomes — offline conversions, demo show rates, and pipeline velocity.",
+    bio: "Connects campaign spend to CRM outcomes — offline conversions, lead quality scores, and sales-ready pipeline velocity.",
     linkedinUrl: "https://www.linkedin.com/in/marcuschen",
     imageSrc: "/team/marcus-chen.svg",
     formerRole: "Marketing Analytics Lead",
@@ -94,7 +95,7 @@ export const teamMembers: readonly TeamMember[] = [
   {
     name: "Elena Rodriguez",
     title: "Client Strategy Lead",
-    bio: "Your weekly strategic partner — challenges assumptions, aligns channel mix to sales cycle, and keeps us accountable to pipeline.",
+    bio: "Your weekly strategic partner — challenges assumptions, aligns channel mix to sales cycle, and keeps us accountable to lead volume and quality.",
     linkedinUrl: "https://www.linkedin.com/in/elenarodriguez",
     imageSrc: "/team/elena-rodriguez.svg",
     formerRole: "Director of Demand Gen",
@@ -103,24 +104,24 @@ export const teamMembers: readonly TeamMember[] = [
 ] as const;
 
 export const teamIntro = {
-  headline: "Operators, not account managers",
+  headline: "Performance marketers, not account managers",
   subheadline:
-    "Every person on your account has run SaaS paid media before — not just managed tickets.",
+    "Every person on your account has run B2B lead generation campaigns before — not just managed tickets.",
   body: [
     "We're a small, senior team by design. No junior buyers learning on your budget. No rotating cast of account managers. You work directly with the people optimizing your campaigns.",
-    "Combined, we've managed $28M+ in B2B SaaS ad spend and shipped creative across Meta, LinkedIn, YouTube, and Google — always tied back to demos, trials, and revenue.",
+    "Combined, we've managed $28M+ in performance ad spend and shipped lead gen creative across Meta, LinkedIn, YouTube, and Google — always tied back to qualified leads, demos, and revenue.",
   ],
 } as const;
 
 export const whyOurTeam = {
   headline: "Why our team is different",
   subheadline:
-    "Senior operators who've been in your seat — and still run the work themselves.",
+    "Senior performance marketers who've been in your seat — and still run the work themselves.",
   points: [
     {
-      title: "SaaS-only experience",
+      title: "Lead gen & SaaS experience",
       description:
-        "We've all run paid media inside SaaS companies. We know ACV, payback windows, and multi-stakeholder sales cycles — not just platform metrics.",
+        "We've all run performance marketing inside SaaS companies. We know CPL, lead quality, payback windows, and multi-stakeholder sales cycles — not just platform metrics.",
     },
     {
       title: "No delegation layer",
@@ -130,12 +131,12 @@ export const whyOurTeam = {
     {
       title: "Creative + media under one roof",
       description:
-        "Messaging, creative, and media buying aren't siloed. One team owns the full loop from hook test to pipeline report.",
+        "Messaging, creative, and media buying aren't siloed. One team owns the full loop from hook test to lead gen report.",
     },
     {
       title: "Weekly accountability",
       description:
-        "Every client gets a written optimization log — what we tested, what we killed, what we scaled, and why it matters for pipeline.",
+        "Every client gets a written optimization log — what we tested, what we killed, what we scaled, and why it matters for lead volume and quality.",
     },
   ],
 } as const;
@@ -143,12 +144,12 @@ export const whyOurTeam = {
 export const whyWeAreBetter = {
   headline: "Why we're better than generalist agencies",
   subheadline:
-    "Most agencies say yes to everyone. We said no — and built a team that only does SaaS paid media.",
+    "Most agencies say yes to everyone. We said no — and built a team that only does B2B performance marketing and lead generation.",
   comparisons: [
     {
       title: "What we optimize for",
       them: "Clicks, impressions, and platform-reported ROAS",
-      us: "Demos booked, SQL volume, pipeline ROAS, and revenue payback",
+      us: "Qualified leads, SQL volume, cost per lead, and revenue payback",
     },
     {
       title: "Who runs your account",
@@ -175,18 +176,158 @@ export const whyWeAreBetter = {
 
 /** Thin proof strip below hero — keep numbers aligned with real client data. */
 export const proofBar = [
-  { label: "Trusted by 43+ SaaS teams", icon: "stars" as const },
-  { label: "$28M+ in ad spend managed", icon: "spend" as const },
-  { label: "Avg. 3.6x pipeline ROAS across clients", icon: "roas" as const },
+  { label: "Trusted by 43+ B2B teams", icon: "stars" as const },
+  { label: "$28M+ in performance ad spend managed", icon: "spend" as const },
+  { label: "Avg. 3.6x ROAS on lead gen campaigns", icon: "roas" as const },
   { label: "G2 & Clutch verified", icon: "verified" as const },
 ] as const;
 
 export const auditDeliverables = [
-  "Full breakdown of where your ad spend is leaking",
-  "Attribution gaps costing you demo visibility",
-  "Channel-specific fix roadmap (Meta / YouTube / LinkedIn)",
-  "Benchmark: how your CPL compares to similar SaaS companies",
+  "Full breakdown of where your lead gen spend is leaking",
+  "Attribution gaps costing you qualified lead visibility",
+  "Channel-specific fix roadmap (Meta / YouTube / LinkedIn / Google)",
+  "Benchmark: how your CPL compares to similar B2B SaaS campaigns",
   "Delivered within 5 business days — yours to keep, no strings attached",
+] as const;
+
+/** Free audit form — spend tiers */
+export const auditSpendOptions = [
+  "<$5K/mo",
+  "$5K–$15K/mo",
+  "$15K–$30K/mo",
+  "$30K+/mo",
+  "Not running ads yet",
+] as const;
+
+/** Channels the audit can focus on — matches /services */
+export const auditChannelOptions = [
+  { id: "meta", label: "Meta Ads" },
+  { id: "instagram", label: "Instagram Ads" },
+  { id: "youtube", label: "YouTube Ads" },
+  { id: "linkedin", label: "LinkedIn Ads" },
+  { id: "google", label: "Google Ads" },
+  { id: "unsure", label: "I'm not sure" },
+] as const;
+
+export type AuditChannelId = (typeof auditChannelOptions)[number]["id"];
+
+/** What a qualified lead means for their business */
+export const auditLeadGoals = [
+  { id: "demos", label: "Booked demos" },
+  { id: "trials", label: "Free trials" },
+  { id: "sqls", label: "Sales-qualified leads (SQLs)" },
+  { id: "mqls", label: "Marketing-qualified leads (MQLs)" },
+  { id: "other", label: "Other" },
+] as const;
+
+export type AuditLeadGoalId = (typeof auditLeadGoals)[number]["id"];
+
+/** Who currently runs their paid campaigns */
+export const auditAdManagers = [
+  { id: "in-house", label: "In-house marketer" },
+  { id: "agency", label: "Another agency" },
+  { id: "founder", label: "Founder / solo marketer" },
+  { id: "not-running", label: "Not running ads yet" },
+] as const;
+
+export type AuditAdManagerId = (typeof auditAdManagers)[number]["id"];
+
+/** CRM used for lead follow-up — affects tracking audit */
+export const auditCrmOptions = [
+  { id: "hubspot", label: "HubSpot" },
+  { id: "salesforce", label: "Salesforce" },
+  { id: "pipedrive", label: "Pipedrive" },
+  { id: "other", label: "Other CRM" },
+  { id: "none", label: "No CRM yet" },
+] as const;
+
+export type AuditCrmId = (typeof auditCrmOptions)[number]["id"];
+
+/** Offline conversion / CRM tracking maturity */
+export const auditTrackingOptions = [
+  { id: "yes", label: "Yes — CRM events feed back to ads" },
+  { id: "partial", label: "Partially — some gaps" },
+  { id: "no", label: "No — we optimize on form fills only" },
+  { id: "unsure", label: "Not sure" },
+] as const;
+
+export type AuditTrackingId = (typeof auditTrackingOptions)[number]["id"];
+
+/** Reference list for /free-audit — what we ask and why */
+export const auditIntakeQuestions = [
+  {
+    category: "About your business",
+    items: [
+      "Company name, website, and work email",
+      "Who you sell to (B2B SaaS, vertical, deal size if known)",
+    ],
+  },
+  {
+    category: "Spend & goals",
+    items: [
+      "Monthly ad spend (or if you haven't launched yet)",
+      "Primary lead goal — demos, trials, MQLs, or SQLs",
+      "Who manages ads today — in-house, agency, or founder-led",
+    ],
+  },
+  {
+    category: "Campaign setup",
+    items: [
+      "Which channels you run or want to test (Meta, LinkedIn, YouTube, Google)",
+      "CRM platform and whether offline conversions are wired to ad platforms",
+      "Current cost per lead or demo (if you know it)",
+      "Biggest challenge — high CPL, junk leads, bad tracking, wrong channels, etc.",
+    ],
+  },
+] as const;
+
+/** Main topic for a 30-min strategy call */
+export const strategyCallTopics = [
+  { id: "channel-mix", label: "Review my channel mix & budget" },
+  { id: "cpl-roas", label: "Lower CPL / improve ROAS" },
+  { id: "tracking", label: "Fix tracking & lead attribution" },
+  { id: "scale", label: "Scale what's working" },
+  { id: "agency-review", label: "Second opinion on current setup" },
+  { id: "getting-started", label: "Getting started with lead gen ads" },
+] as const;
+
+export type StrategyCallTopicId = (typeof strategyCallTopics)[number]["id"];
+
+/** When they're looking to start if we partner */
+export const strategyCallTimelines = [
+  { id: "asap", label: "ASAP — ready to move" },
+  { id: "30-days", label: "Within 30 days" },
+  { id: "60-days", label: "1–2 months out" },
+  { id: "exploring", label: "Just exploring options" },
+] as const;
+
+export type StrategyCallTimelineId = (typeof strategyCallTimelines)[number]["id"];
+
+/** Reference list for /contact — what we ask before a strategy call */
+export const strategyCallIntakeQuestions = [
+  {
+    category: "About you",
+    items: [
+      "Name, work email, company, and website",
+      "Preferred call time (if not booking on the calendar)",
+    ],
+  },
+  {
+    category: "Your marketing today",
+    items: [
+      "Monthly ad spend and who runs campaigns today",
+      "Primary lead goal — demos, trials, MQLs, or SQLs",
+      "Channels you're running or want to discuss",
+    ],
+  },
+  {
+    category: "What to cover on the call",
+    items: [
+      "Main topic — channel mix, CPL/ROAS, tracking, scaling, or getting started",
+      "When you're looking to start working together",
+      "Anything specific you want us to prepare before the 30-min call",
+    ],
+  },
 ] as const;
 
 export const auditTestimonial = {
@@ -199,14 +340,14 @@ export const auditTestimonial = {
 
 export const qualifier = {
   goodFit: [
-    "You're a B2B SaaS company spending $5K–$50K/month on paid ads",
-    "Your sales cycle is 14–90 days and you sell through demos or trials",
-    "You've tried running ads in-house or with a generalist agency and it didn't work",
-    "You care about pipeline and revenue — not just clicks and impressions",
+    "You're a B2B SaaS company spending $5K–$50K/month on lead generation campaigns",
+    "You need qualified leads — demos, trials, or sales-ready SQLs — not just form fills",
+    "You've tried in-house or generalist performance marketing and CPL kept climbing",
+    "You care about lead quality and revenue — not just clicks and impressions",
   ],
   badFit: [
     "You're pre-revenue or pre-product-market fit",
-    'You need someone to "just run ads" without a strategy',
+    'You need someone to "just run ads" without a lead gen strategy',
     "You want the cheapest option available",
   ],
 } as const;
@@ -215,8 +356,8 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/about", label: "About" },
-  { href: "/free-audit", label: "Free Audit" },
-  { href: "/contact", label: "Book a Call" },
+  // { href: "/free-audit", label: "Lead Gen Audit" },
+  // { href: "/contact", label: "Book a Call" },
 ] as const;
 
 export type ClientTestimonial = {
@@ -248,7 +389,7 @@ export const clientRating = {
   /** Primary external source shown in hero (swap URL when your live profile is ready). */
   primarySource: "g2" as const,
   methodology:
-    "Average 1–5 rating from post-engagement surveys and third-party reviews on G2 and Clutch, completed by active B2B SaaS clients between 2023 and 2025.",
+    "Average 1–5 rating from post-engagement surveys and third-party reviews on G2 and Clutch, completed by active B2B clients between 2023 and 2025.",
   lastUpdated: "2025-06-01",
 } as const;
 
@@ -303,22 +444,25 @@ export const channels = [
   {
     name: "Meta & Instagram",
     description:
-      "Retargeting, lookalikes, and creative that converts cold SaaS traffic.",
+      "Lead gen and retargeting campaigns with creative that converts cold B2B traffic.",
     color: "bg-sky/30 text-ink",
   },
   {
     name: "LinkedIn Ads",
-    description: "Title, company, and ABM targeting for demo-led B2B SaaS.",
+    description:
+      "Title, company, and ABM targeting for demo-led B2B lead generation.",
     color: "bg-coral/20 text-ink",
   },
   {
     name: "YouTube Ads",
-    description: "Demand capture and product education for long sales cycles.",
+    description:
+      "Demand capture and product education that feeds qualified leads.",
     color: "bg-sun/40 text-ink",
   },
   {
     name: "Google Ads",
-    description: "High-intent search and competitor conquest for SaaS buyers.",
+    description:
+      "High-intent search and competitor conquest for buyers ready to convert.",
     color: "bg-mint/30 text-ink",
   },
 ] as const;
@@ -326,27 +470,28 @@ export const channels = [
 export const funnelSteps = [
   {
     id: "spend",
-    question: "I spend money on ads",
-    headline: "Your ad budget deserves a grown-up in the room",
-    body: "You're already paying platforms. The question isn't whether to spend — it's whether anyone is protecting every dollar from waste, drift, and vanity metrics.",
+    question: "I need more qualified leads",
+    headline:
+      "Your lead gen budget deserves performance marketers who own outcomes",
+    body: "You're already paying platforms. The question isn't whether to spend — it's whether your campaigns are optimized for lead quality, CPL, and revenue — not vanity metrics.",
   },
   {
     id: "waste",
     question: "Will this agency waste my money?",
-    headline: "We kill waste before we scale spend",
-    body: "Weekly account surgery: negative keywords, audience exclusions, creative kill switches, and budget caps tied to qualified pipeline — not impressions.",
+    headline: "We kill waste before we scale lead gen spend",
+    body: "Weekly campaign surgery: negative keywords, audience exclusions, creative kill switches, and budget caps tied to cost-per-qualified-lead — not impressions.",
   },
   {
     id: "understand",
-    question: "Do they understand my business?",
-    headline: "Built for SaaS funnels, not generic lead gen",
-    body: "Trials, demos, multi-stakeholder buying, payback periods, and CRM stages — we optimize to how your buyers actually decide, not how ad platforms want you to spend.",
+    question: "Do they understand lead generation?",
+    headline: "Built for B2B lead gen, not generic traffic campaigns",
+    body: "Trials, demos, MQL-to-SQL conversion, payback periods, and CRM stages — we optimize performance marketing to how your buyers actually decide.",
   },
   {
     id: "prove",
     question: "Can they prove results?",
-    headline: "Pipeline in the CRM, not screenshots in a deck",
-    body: "Offline conversions, demo show rates, SQL volume, and revenue attribution. You'll see the same numbers your sales team sees.",
+    headline: "Leads in the CRM, not screenshots in a deck",
+    body: "Offline conversions, lead quality scores, SQL volume, and revenue attribution. You'll see the same numbers your sales team sees.",
   },
   {
     id: "trust",
@@ -356,15 +501,15 @@ export const funnelSteps = [
   },
   {
     id: "book",
-    question: "Book a call",
-    headline: "Start with a free ads audit — keep the roadmap either way",
-    body: "Get a 90-day growth plan with quick wins, waste to cut, and where to scale. Whether you hire us or not, you'll leave with clarity.",
+    question: "Get started",
+    headline: "Start with a free lead gen audit — keep the roadmap either way",
+    body: "Get a 90-day performance marketing plan with quick wins, waste to cut, and channels to scale. Whether you hire us or not, you'll leave with clarity.",
   },
 ] as const;
 
 export const stats = [
-  { value: "4.2x", label: "Avg. pipeline ROAS" },
-  { value: "38%", label: "Avg. waste cut in 30 days" },
+  { value: "4.2x", label: "Avg. campaign ROAS" },
+  { value: "38%", label: "Avg. CPL reduction in 30 days" },
   { value: "90", label: "Day proof window" },
   { value: "0", label: "Long-term lock-ins" },
 ] as const;
@@ -516,7 +661,7 @@ export const faqs = [
   {
     question: "How much does working with you cost?",
     answer:
-      "Our management fees typically start at $2,500/month and scale based on channels, ad spend, and scope. We work with SaaS teams spending anywhere from $5K to $80K/month on paid ads. The free audit will give us both a clear picture of what makes sense before any commitment.",
+      "Our management fees typically start at $2,500/month and scale based on channels, ad spend, and scope. We work with B2B teams spending anywhere from $5K to $80K/month on lead generation campaigns. The free audit will give us both a clear picture of what makes sense before any commitment.",
   },
   {
     question: "Do your fees include ad spend?",
@@ -531,7 +676,7 @@ export const faqs = [
   {
     question: "Which platforms do you manage?",
     answer:
-      "Meta (Facebook & Instagram), LinkedIn, YouTube, and Google Ads. We focus exclusively on paid media for B2B SaaS — no SEO, no web dev side quests.",
+      "Meta (Facebook & Instagram), LinkedIn, YouTube, and Google Ads. We focus exclusively on performance marketing and lead generation for B2B SaaS — no SEO, no web dev side quests.",
   },
   {
     question: "How fast will we see results?",
@@ -546,6 +691,6 @@ export const faqs = [
   {
     question: "Who owns the ad accounts?",
     answer:
-      "You do. We work in your accounts, set up tracking in your GA4/GTM, and share dashboards tied to your CRM pipeline.",
+      "You do. We work in your accounts, set up tracking in your GA4/GTM, and share dashboards tied to lead volume, quality, and CRM pipeline.",
   },
 ] as const;

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, Check, Clock } from "lucide-react";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
+import { PlayfulCard } from "@/components/ui/playful-card";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PageShell } from "@/components/layout/page-shell";
 import { BookingSection } from "@/components/shared/booking-section";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, strategyCallIntakeQuestions } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Book a Strategy Call",
   description:
-    "Book a live 30-minute strategy call with adMarkapture — pick a time on the calendar or send a booking request.",
+    "Book a live 30-minute performance marketing strategy call with adMarkapture — pick a time on the calendar or send a booking request.",
 };
 
 const contactOptions = [
@@ -43,10 +44,45 @@ export default function ContactPage() {
             <p className="mt-3 text-sm text-ink/55">
               Want a written audit instead?{" "}
               <a href="/free-audit" className="font-semibold text-primary hover:underline">
-                Get your free ads audit →
+                Get your free lead gen audit →
               </a>{" "}
               — no call required, delivered in 5 business days.
             </p>
+          </FadeIn>
+
+          <FadeIn delay={0.08} className="max-w-2xl mx-auto mb-10">
+            <PlayfulCard variant="ticket" tone="neutral" className="p-6 sm:p-8">
+              <h2 className="text-lg font-bold text-ink">
+                What we&apos;ll ask before your call
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Whether you book on the calendar or send a request, these answers help us
+                prepare a focused 30-minute strategy session — not a generic sales pitch.
+              </p>
+              <div className="mt-5 space-y-5">
+                {strategyCallIntakeQuestions.map((group) => (
+                  <div key={group.category}>
+                    <p className="text-xs font-bold text-primary uppercase tracking-wide">
+                      {group.category}
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-sm text-ink/80 leading-relaxed"
+                        >
+                          <Check
+                            className="size-4 shrink-0 text-primary stroke-[3] mt-0.5"
+                            aria-hidden
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </PlayfulCard>
           </FadeIn>
 
           <FadeIn delay={0.1}>

@@ -9,7 +9,7 @@ import { Float } from "@/components/motion/float";
 
 const protections = [
   "Weekly waste audits on every active campaign",
-  "Budget caps tied to cost-per-qualified-demo, not CPL",
+  "Budget caps tied to cost-per-qualified-lead, not CPL on junk form fills",
   "Creative kill switches after 48h underperformance",
   "Full spend transparency — no hidden markups",
   "Kill or pause any channel that isn't pacing to goals",

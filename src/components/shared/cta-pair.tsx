@@ -23,7 +23,11 @@ export function CtaPair({ className, size = "lg", layout = "row" }: CtaPairProps
       )}
     >
       <div className="flex flex-col items-center sm:items-start gap-1.5">
-        <PrimaryButton href={siteConfig.ctaPrimaryHref} size={size}>
+        <PrimaryButton
+          href={siteConfig.ctaPrimaryHref}
+          size={size}
+          badge={siteConfig.ctaPrimaryBadge}
+        >
           {siteConfig.ctaPrimary}
         </PrimaryButton>
         <p className="text-xs text-muted-foreground text-center sm:text-left max-w-[220px]">
