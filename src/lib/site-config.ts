@@ -36,14 +36,140 @@ export function isCalendarConfigured(): boolean {
 }
 
 export const founder = {
-  name: "Alex Morgan",
-  title: "Founder & Head of Strategy",
-  formerRole: "Head of Performance Marketing",
-  formerCompany: "Lattice",
-  linkedinUrl: "https://www.linkedin.com/in/alexmorgan",
+  name: "Nabila Farzin",
+  title: "CEO & Founder",
+  formerRole: "Director",
+  formerCompany: "Matricmax",
+  linkedinUrl:
+    "https://www.linkedin.com/in/nabila-farzin-csca-%E2%84%A2-b7a305b4",
+  /** Drop a headshot at public/team/alex-morgan.jpg to replace the SVG placeholder. */
+  imageSrc: "/nabila.jpeg",
   bio: [
-    "adMarkapture was built by paid media operators, not account managers.",
-    "Our founding team has managed over $12M in SaaS ad spend across Meta, YouTube, and LinkedIn — before starting this agency. We got tired of watching great SaaS products lose to inferior competitors who simply outspent them. So we built the system we wished we had.",
+    "I started adMarkapture after a decade inside SaaS marketing teams — watching great products lose pipeline to competitors who simply understood paid media better.",
+    "We built this agency for founders who are tired of generalist shops that optimize for clicks while demo volume flatlines. Every system we run today was battle-tested on real SaaS funnels — not e-commerce playbooks repackaged for B2B.",
+  ],
+  quote:
+    "Your ad budget is too important to hand to people who've never owned a SaaS pipeline number.",
+} as const;
+
+export type TeamMember = {
+  name: string;
+  title: string;
+  bio: string;
+  linkedinUrl: string;
+  imageSrc: string;
+  formerRole?: string;
+  formerCompany?: string;
+};
+
+/** About page — team roster (swap SVG placeholders for JPG headshots in /public/team/). */
+export const teamMembers: readonly TeamMember[] = [
+  {
+    name: "Jordan Lee",
+    title: "Head of Paid Media",
+    bio: "Runs Meta, YouTube, and Google accounts with a kill-fast testing cadence. Former performance lead at Notion.",
+    linkedinUrl: "https://www.linkedin.com/in/jordanlee",
+    imageSrc: "/team/jordan-lee.svg",
+    formerRole: "Performance Marketing Lead",
+    formerCompany: "Notion",
+  },
+  {
+    name: "Priya Sharma",
+    title: "Head of Creative & Messaging",
+    bio: "Turns ICP insights into ad creative that converts — from hook tests to full funnel narrative arcs.",
+    linkedinUrl: "https://www.linkedin.com/in/priyasharma",
+    imageSrc: "/team/priya-sharma.svg",
+    formerRole: "Creative Director",
+    formerCompany: "Gong",
+  },
+  {
+    name: "Marcus Chen",
+    title: "Growth Analyst & Attribution",
+    bio: "Connects ad spend to CRM outcomes — offline conversions, demo show rates, and pipeline velocity.",
+    linkedinUrl: "https://www.linkedin.com/in/marcuschen",
+    imageSrc: "/team/marcus-chen.svg",
+    formerRole: "Marketing Analytics Lead",
+    formerCompany: "Ramp",
+  },
+  {
+    name: "Elena Rodriguez",
+    title: "Client Strategy Lead",
+    bio: "Your weekly strategic partner — challenges assumptions, aligns channel mix to sales cycle, and keeps us accountable to pipeline.",
+    linkedinUrl: "https://www.linkedin.com/in/elenarodriguez",
+    imageSrc: "/team/elena-rodriguez.svg",
+    formerRole: "Director of Demand Gen",
+    formerCompany: "BambooHR",
+  },
+] as const;
+
+export const teamIntro = {
+  headline: "Operators, not account managers",
+  subheadline:
+    "Every person on your account has run SaaS paid media before — not just managed tickets.",
+  body: [
+    "We're a small, senior team by design. No junior buyers learning on your budget. No rotating cast of account managers. You work directly with the people optimizing your campaigns.",
+    "Combined, we've managed $28M+ in B2B SaaS ad spend and shipped creative across Meta, LinkedIn, YouTube, and Google — always tied back to demos, trials, and revenue.",
+  ],
+} as const;
+
+export const whyOurTeam = {
+  headline: "Why our team is different",
+  subheadline:
+    "Senior operators who've been in your seat — and still run the work themselves.",
+  points: [
+    {
+      title: "SaaS-only experience",
+      description:
+        "We've all run paid media inside SaaS companies. We know ACV, payback windows, and multi-stakeholder sales cycles — not just platform metrics.",
+    },
+    {
+      title: "No delegation layer",
+      description:
+        "The strategist on your kickoff call is the same person reviewing your campaigns every week. No handoffs to junior staff.",
+    },
+    {
+      title: "Creative + media under one roof",
+      description:
+        "Messaging, creative, and media buying aren't siloed. One team owns the full loop from hook test to pipeline report.",
+    },
+    {
+      title: "Weekly accountability",
+      description:
+        "Every client gets a written optimization log — what we tested, what we killed, what we scaled, and why it matters for pipeline.",
+    },
+  ],
+} as const;
+
+export const whyWeAreBetter = {
+  headline: "Why we're better than generalist agencies",
+  subheadline:
+    "Most agencies say yes to everyone. We said no — and built a team that only does SaaS paid media.",
+  comparisons: [
+    {
+      title: "What we optimize for",
+      them: "Clicks, impressions, and platform-reported ROAS",
+      us: "Demos booked, SQL volume, pipeline ROAS, and revenue payback",
+    },
+    {
+      title: "Who runs your account",
+      them: "Junior media buyers with a senior name on the proposal",
+      us: "Senior operators who've managed $1M+ SaaS budgets themselves",
+    },
+    {
+      title: "Creative approach",
+      them: "Generic templates and one-size-fits-all messaging",
+      us: "ICP-mapped hooks, funnel-stage creative, and 48-hour kill tests",
+    },
+    {
+      title: "Reporting & transparency",
+      them: "Monthly PDFs with vanity metrics and vague recommendations",
+      us: "Weekly logs, CRM-linked dashboards, and spend you can audit anytime",
+    },
+    {
+      title: "Contracts & ownership",
+      them: "12-month lock-ins, assets held hostage on exit",
+      us: "90-day proof window, month-to-month after — you own everything",
+    },
   ],
 } as const;
 
@@ -80,7 +206,7 @@ export const qualifier = {
   ],
   badFit: [
     "You're pre-revenue or pre-product-market fit",
-    "You need someone to \"just run ads\" without a strategy",
+    'You need someone to "just run ads" without a strategy',
     "You want the cheapest option available",
   ],
 } as const;
@@ -168,7 +294,8 @@ export const reviewPlatforms: readonly ReviewPlatform[] = [
 
 export function getPrimaryReviewPlatform(): ReviewPlatform {
   return (
-    reviewPlatforms.find((p) => p.id === clientRating.primarySource) ?? reviewPlatforms[0]
+    reviewPlatforms.find((p) => p.id === clientRating.primarySource) ??
+    reviewPlatforms[0]
   );
 }
 

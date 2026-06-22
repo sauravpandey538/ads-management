@@ -6,15 +6,19 @@ import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { PlayfulCard } from "@/components/ui/playful-card";
 import { FadeIn } from "@/components/motion/fade-in";
 import { CtaButton } from "@/components/shared/cta-button";
-import { LinkedInButton, PersonAvatar } from "@/components/shared/person-links";
+import {
+  CeoIntroSection,
+  TeamSection,
+  WhyBetterSection,
+  WhyTeamSection,
+} from "@/components/sections/about-team-sections";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
 import { PageShell } from "@/components/layout/page-shell";
-import { founder } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "adMarkapture is a B2B SaaS paid ads agency obsessed with pipeline, transparency, and protecting your budget.",
+    "Meet the adMarkapture team — SaaS paid media operators obsessed with pipeline, transparency, and protecting your budget.",
 };
 
 const values = [
@@ -61,40 +65,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 border-b border-ink/10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <FadeIn>
-            <PlayfulCard variant="ticket" tone="neutral" className="p-6 sm:p-10">
-              <div className="flex flex-col sm:flex-row gap-6 sm:items-start">
-                <PersonAvatar name={founder.name} className="size-20 text-2xl" />
-                <div className="flex-1">
-                  {founder.bio.map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className={
-                        i === 0
-                          ? "text-xl font-bold text-ink leading-snug"
-                          : "mt-4 text-muted-foreground leading-relaxed"
-                      }
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                  <div className="mt-6 pt-6 border-t-2 border-ink/10">
-                    <p className="font-bold text-ink">
-                      {founder.name} · {founder.title}
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Former {founder.formerRole} at {founder.formerCompany}
-                    </p>
-                    <LinkedInButton href={founder.linkedinUrl} className="mt-4" />
-                  </div>
-                </div>
-              </div>
-            </PlayfulCard>
-          </FadeIn>
-        </div>
-      </section>
+      <CeoIntroSection />
+      <TeamSection />
+      <WhyTeamSection />
+      <WhyBetterSection />
 
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">

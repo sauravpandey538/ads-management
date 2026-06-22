@@ -1,14 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/** Founder avatar — initials until a real headshot is uploaded. */
+/** Avatar with optional headshot — falls back to initials. */
 export function PersonAvatar({
   name,
+  imageSrc,
   className,
 }: {
   name: string;
+  imageSrc?: string;
   className?: string;
 }) {
   const initials = name
@@ -16,6 +19,25 @@ export function PersonAvatar({
     .map((n) => n[0])
     .join("")
     .slice(0, 2);
+
+  if (imageSrc) {
+    return (
+      <div
+        className={cn(
+          "relative shrink-0 overflow-hidden rounded-full border-2 border-ink bg-play-blue/10",
+          className
+        )}
+      >
+        <Image
+          src={imageSrc}
+          alt={name}
+          fill
+          sizes="80px"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div
