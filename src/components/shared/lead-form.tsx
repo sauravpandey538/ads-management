@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { PlayfulCard } from "@/components/ui/playful-card";
 import { PrimaryButton } from "@/components/shared/primary-button";
+import { LegalConsent } from "@/components/shared/legal-consent";
 import { cn } from "@/lib/utils";
 
 const auditPerks = [
@@ -313,9 +314,7 @@ export function LeadForm({
               </PrimaryButton>
             </>
           )}
-          <p className="text-xs text-center text-ink/55 font-medium">
-            No spam · No lock-in · Your data stays yours
-          </p>
+          <LegalConsent />
         </form>
       </PlayfulCard>
     </div>

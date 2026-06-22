@@ -1,11 +1,13 @@
 "use client";
 
 import { Shield, Unlock, Users, Zap } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card2D } from "@/components/ui/card-2d";
+import { StarRating } from "@/components/shared/star-rating";
+import { ReviewSourceLink } from "@/components/shared/review-source-link";
 import { TrustHandshakeIllustration } from "@/components/illustrations/ad-illustrations";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Float } from "@/components/motion/float";
-import { testimonials } from "@/lib/site-config";
+import { siteConfig, testimonials } from "@/lib/site-config";
 
 const trustPoints = [
   {
@@ -47,6 +49,10 @@ export function TrustSection() {
               We earn trust weekly — or you walk with every asset we created.
             </p>
 
+            <div className="mt-6">
+              <ReviewSourceLink variant="badge" />
+            </div>
+
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {trustPoints.map((point, i) => (
                 <FadeIn key={point.title} delay={i * 0.06}>
@@ -64,7 +70,7 @@ export function TrustSection() {
             </div>
           </FadeIn>
 
-          <div className="space-y-6">
+          <div className="space-y-6" id="reviews">
             <FadeIn delay={0.1} direction="left" className="flex justify-center">
               <Float amplitude={6}>
                 <TrustHandshakeIllustration />
@@ -73,22 +79,40 @@ export function TrustSection() {
 
             {testimonials.map((t, i) => (
               <FadeIn key={t.name} delay={0.15 + i * 0.08}>
-                <Card className="doodle-border border-0 bg-white playful-shadow">
-                  <CardContent className="pt-6">
-                    <p className="text-ink leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                    <div className="mt-4 flex items-center gap-3">
-                      <div className="size-10 rounded-full bg-sky/30 flex items-center justify-center font-bold text-ink">
+                <Card2D className="bg-white p-6">
+                  <figure itemScope itemType="https://schema.org/Review">
+                    <meta itemProp="datePublished" content={t.dateReviewed} />
+                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Organization">
+                      <meta itemProp="name" content={siteConfig.name} />
+                    </div>
+                    <StarRating value={t.rating} size="sm" itemProp className="mb-3" />
+                    <blockquote
+                      cite="/testimonials#reviews"
+                      className="text-ink leading-relaxed not-italic"
+                      itemProp="reviewBody"
+                    >
+                      <p>&ldquo;{t.quote}&rdquo;</p>
+                    </blockquote>
+                    <figcaption className="mt-4 flex items-center gap-3">
+                      <div className="size-10 rounded-full bg-sky/30 flex items-center justify-center font-bold text-ink border-2 border-ink/15">
                         {t.name[0]}
                       </div>
-                      <div>
-                        <p className="font-semibold text-sm">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {t.role}, {t.company}
+                      <cite
+                        className="not-italic"
+                        itemProp="author"
+                        itemScope
+                        itemType="https://schema.org/Person"
+                      >
+                        <p className="font-semibold text-sm text-ink">
+                          <span itemProp="name">{t.name}</span>
                         </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                        <p className="text-xs text-muted-foreground">
+                          <span itemProp="jobTitle">{t.role}</span>, {t.company}
+                        </p>
+                      </cite>
+                    </figcaption>
+                  </figure>
+                </Card2D>
               </FadeIn>
             ))}
           </div>

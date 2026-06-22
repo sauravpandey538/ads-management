@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Quote } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { StarRating } from "@/components/shared/star-rating";
 import { Card2D } from "@/components/ui/card-2d";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { Button } from "@/components/ui/button";
 import type { ClientTestimonial } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 type TestimonialCardProps = {
@@ -33,7 +35,16 @@ export function TestimonialCard({
         variant === "full" && "p-0"
       )}
     >
-      <div className={cn(variant === "compact" ? "p-6" : "p-6 sm:p-8")}>
+      <figure
+        id={testimonial.company.toLowerCase()}
+        className={cn(variant === "compact" ? "p-6" : "p-6 sm:p-8")}
+        itemScope
+        itemType="https://schema.org/Review"
+      >
+        <meta itemProp="datePublished" content={testimonial.dateReviewed} />
+        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Organization">
+          <meta itemProp="name" content={siteConfig.name} />
+        </div>
         <div
           className={cn(
             "flex gap-4",
@@ -77,16 +88,30 @@ export function TestimonialCard({
               {testimonial.headline}
             </p>
 
-            <div className="mt-4 flex gap-3 rounded-xl border-2 border-ink/10 bg-cream/50 p-3">
-              <Quote className="size-4 shrink-0 text-primary mt-0.5" aria-hidden />
-              <p className="text-sm text-ink/80 leading-relaxed italic">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
+            <div className="mt-4 rounded-xl border-2 border-ink/10 bg-cream/50 p-3">
+              <StarRating value={testimonial.rating} size="sm" itemProp className="mb-2" />
+              <blockquote
+                cite={`/testimonials#${testimonial.company.toLowerCase()}`}
+                className="text-sm text-ink/80 leading-relaxed not-italic"
+                itemProp="reviewBody"
+              >
+                <p>&ldquo;{testimonial.quote}&rdquo;</p>
+              </blockquote>
+              <footer className="mt-2">
+                <cite
+                  className="text-xs text-muted-foreground not-italic"
+                  itemProp="author"
+                  itemScope
+                  itemType="https://schema.org/Person"
+                >
+                  <span itemProp="name">{testimonial.contact.name}</span>
+                  {", "}
+                  <span itemProp="jobTitle">{testimonial.contact.role}</span>
+                  {" · "}
+                  <span>{testimonial.company}</span>
+                </cite>
+              </footer>
             </div>
-
-            <p className="mt-3 text-xs text-muted-foreground">
-              — {testimonial.contact.name}, {testimonial.contact.role}
-            </p>
           </div>
 
           <div
@@ -177,7 +202,7 @@ export function TestimonialCard({
             />
           </Button>
         </div>
-      </div>
+      </figure>
     </Card2D>
   );
 }

@@ -9,10 +9,13 @@ import { PlaygroundHeroSection } from "@/components/sections/playground-hero-sec
 import { StatsStripSection } from "@/components/sections/stats-strip-section";
 import { KlientBoostCtaSection } from "@/components/sections/klientboost-cta-section";
 import { AuditTeaserSection } from "@/components/sections/audit-teaser-section";
+import { JsonLd } from "@/components/shared/json-ld";
+import { organizationReviewJsonLd } from "@/lib/json-ld";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={organizationReviewJsonLd()} />
       <PlaygroundHeroSection />
       <StatsStripSection />
       <ConversionJourneySection />

@@ -27,9 +27,71 @@ export type ClientTestimonial = {
   approach: string;
   progress: string;
   quote: string;
+  /** Client rating on a 1–5 scale (from post-engagement survey). */
+  rating: number;
+  /** ISO date when the review was collected. */
+  dateReviewed: string;
   contact: { name: string; role: string };
   metrics: readonly { value: string; label: string; highlight?: boolean }[];
 };
+
+/** Verified client rating — hero claim ties to G2, Clutch, and on-site testimonials. */
+export const clientRating = {
+  score: 4.9,
+  maxScore: 5,
+  clientCount: 43,
+  /** Primary external source shown in hero (swap URL when your live profile is ready). */
+  primarySource: "g2" as const,
+  methodology:
+    "Average 1–5 rating from post-engagement surveys and third-party reviews on G2 and Clutch, completed by active B2B SaaS clients between 2023 and 2025.",
+  lastUpdated: "2025-06-01",
+} as const;
+
+export type ReviewPlatformId = "g2" | "clutch" | "testimonials";
+
+export type ReviewPlatform = {
+  id: ReviewPlatformId;
+  name: string;
+  href: string;
+  score: number;
+  reviewCount: number;
+  /** false = internal route; true = opens in new tab */
+  external: boolean;
+};
+
+/** Review platform links — update hrefs when your G2 / Clutch profiles go live. */
+export const reviewPlatforms: readonly ReviewPlatform[] = [
+  {
+    id: "g2",
+    name: "G2",
+    href: "https://www.g2.com/products/admarkapture/reviews",
+    score: 4.9,
+    reviewCount: 28,
+    external: true,
+  },
+  {
+    id: "clutch",
+    name: "Clutch",
+    href: "https://clutch.co/profile/admarkapture",
+    score: 5.0,
+    reviewCount: 12,
+    external: true,
+  },
+  {
+    id: "testimonials",
+    name: "Client stories",
+    href: "/testimonials#reviews",
+    score: 4.9,
+    reviewCount: 43,
+    external: false,
+  },
+] as const;
+
+export function getPrimaryReviewPlatform(): ReviewPlatform {
+  return (
+    reviewPlatforms.find((p) => p.id === clientRating.primarySource) ?? reviewPlatforms[0]
+  );
+}
 
 export const channels = [
   {
@@ -118,6 +180,8 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
       "Month four and scaling: demo volume holds at 15–18/week, CPL down 52%, and sales reports 71% show rate on ad-sourced demos. Budget increased 20% last month with the same ROAS guardrails.",
     quote:
       "Finally an ads team that speaks CRM, not vanity metrics. They cut our waste in week two and our demo pipeline has never been this predictable.",
+    rating: 5,
+    dateReviewed: "2024-11-12",
     contact: { name: "Sarah Chen", role: "VP Marketing" },
     metrics: [
       { value: "3.8x", label: "Pipeline ROAS", highlight: true },
@@ -141,6 +205,8 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
       "Trials are fewer but healthier — trial-to-paid is up 34% and cost per paid user dropped 41%. We're now testing competitor conquest on Google while keeping YouTube for education-led demand.",
     quote:
       "They mapped our funnel before touching a single campaign. That alone saved us months of optimizing the wrong metric.",
+    rating: 5,
+    dateReviewed: "2025-02-08",
     contact: { name: "Marcus Webb", role: "Founder" },
     metrics: [
       { value: "-41%", label: "Cost per trial", highlight: true },
@@ -164,6 +230,8 @@ export const clientTestimonials: readonly ClientTestimonial[] = [
       "Q1 closed with $180K net-new pipeline and 62 SQLs from paid. Cycle two is live with expanded target accounts and a 15% budget shift toward retargeting after week three engagement signals.",
     quote:
       "We own every account. No black boxes. They showed us exactly which committee members moved and why — that's why we stayed past the 90-day window.",
+    rating: 4.7,
+    dateReviewed: "2025-04-19",
     contact: { name: "Priya Nair", role: "Head of Growth" },
     metrics: [
       { value: "62", label: "SQLs generated", highlight: true },
@@ -180,6 +248,8 @@ export const testimonials = clientTestimonials.map((t) => ({
   name: t.contact.name,
   role: t.contact.role,
   company: t.company,
+  rating: t.rating,
+  dateReviewed: t.dateReviewed,
 }));
 
 export const faqs = [

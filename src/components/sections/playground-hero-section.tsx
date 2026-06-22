@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Play, Star } from "lucide-react";
+import { Play } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { DashboardMockup } from "@/components/illustrations/dashboard-mockup";
 import { PlaygroundDoodle } from "@/components/illustrations/playground-doodles";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PrimaryButton } from "@/components/shared/primary-button";
+import { ReviewSourceLink } from "@/components/shared/review-source-link";
 import { LogoMarquee } from "@/components/shared/logo-marquee";
 import { heroTabSlugs, services, type ServiceSlug } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
@@ -43,13 +44,8 @@ export function PlaygroundHeroSection() {
               {siteConfig.ctaPrimary}
             </PrimaryButton>
           </div>
-          <div className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="size-4 fill-sun text-sun" />
-              ))}
-            </div>
-            <span>4.9 stars across 40+ SaaS clients</span>
+          <div className="mt-5 flex justify-center">
+            <ReviewSourceLink />
           </div>
         </FadeIn>
 

@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
 import { FadeIn } from "@/components/motion/fade-in";
 import { CtaButton } from "@/components/shared/cta-button";
+import { JsonLd } from "@/components/shared/json-ld";
+import { ReviewSourceLink } from "@/components/shared/review-source-link";
 import { TestimonialCard } from "@/components/shared/testimonial-card";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
-import { clientTestimonials } from "@/lib/site-config";
+import { organizationReviewJsonLd } from "@/lib/json-ld";
+import { clientRating, clientTestimonials } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Client Testimonials",
@@ -15,6 +18,8 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
+      <JsonLd data={organizationReviewJsonLd()} />
+
       <section className="py-16 sm:py-24 page-dots">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <FadeIn className="max-w-3xl">
@@ -29,9 +34,20 @@ export default function TestimonialsPage() {
               things stand today. Every number ties to demos, SQLs, trials, or revenue — because
               that&apos;s what your CFO actually cares about.
             </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ReviewSourceLink variant="badge" />
+              <p className="text-xs text-muted-foreground max-w-md">
+                {clientRating.methodology} Last updated{" "}
+                {new Date(clientRating.lastUpdated).toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+                .
+              </p>
+            </div>
           </FadeIn>
 
-          <div className="mt-16 flex flex-col gap-8">
+          <div id="reviews" className="mt-16 flex flex-col gap-8">
             {clientTestimonials.map((testimonial, i) => (
               <FadeIn key={testimonial.company} delay={i * 0.06}>
                 <TestimonialCard testimonial={testimonial} variant="full" />

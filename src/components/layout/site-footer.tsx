@@ -25,6 +25,8 @@ const footerGroups = [
     title: "Resources",
     links: [
       { href: "/free-audit", label: "Free Ads Audit" },
+      { href: "/privacy", label: "Privacy Policy" },
+      { href: "/terms", label: "Terms of Service" },
       { href: "/#faq", label: "FAQ" },
     ],
   },
@@ -80,9 +82,16 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-ink/10 flex flex-col gap-2 text-sm text-ink/55 sm:flex-row sm:justify-between">
+        <div className="mt-10 pt-6 border-t border-ink/10 flex flex-col gap-3 text-sm text-ink/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <p className="font-medium">Ads only · SaaS only · No vanity metrics</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-primary font-medium transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-primary font-medium transition-colors">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
