@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type PlayfulBadgeVariant = "ticket" | "stamp" | "pin" | "flag" | "chip";
+export type PlayfulBadgeVariant = "ticket" | "stamp" | "pin" | "flag" | "chip";
 
 type PlayfulBadgeProps = {
   children: React.ReactNode;

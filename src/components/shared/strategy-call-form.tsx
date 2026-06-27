@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { IntakeSuccessPanel } from "@/components/shared/intake-success-panel";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PlayfulBadge } from "@/components/ui/playful-badge";
@@ -22,6 +23,9 @@ import {
   type StrategyCallTimelineId,
   type StrategyCallTopicId,
 } from "@/lib/site-config";
+import { appendLead } from "@/lib/leads-persistence";
+import { buildLeadFromIntake } from "@/lib/intake-scoring";
+import type { OutreachLead } from "@/lib/admin-mock-data";
 import { cn } from "@/lib/utils";
 
 const TOTAL_STEPS = 2;
@@ -55,6 +59,7 @@ export function StrategyCallForm({
   const [preferredTimes, setPreferredTimes] = useState(
     preferredSlot ? `Preferred: ${preferredSlot}` : "",
   );
+  const [submittedLead, setSubmittedLead] = useState<OutreachLead | null>(null);
 
   const toggleAdChannel = (id: AuditChannelId) => {
     if (id === "unsure") {
@@ -75,18 +80,35 @@ export function StrategyCallForm({
       setStep(2);
       return;
     }
+    const fd = new FormData(e.currentTarget);
+    const lead = buildLeadFromIntake({
+      source: "strategy-call",
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      website: String(fd.get("website") ?? ""),
+      monthlySpend: spend,
+      leadGoalId: leadGoal,
+      adManagerId: adManager,
+      channelIds: adChannels,
+      callTopicId: callTopic,
+      timelineId: timeline,
+      preferredSlot: preferredSlot || preferredTimes || undefined,
+      challenge: String(fd.get("callPrep") ?? "") || undefined,
+    });
+    appendLead(lead);
+    setSubmittedLead(lead);
     setSubmitted(true);
   };
 
-  if (submitted) {
+  if (submitted && submittedLead) {
     return (
-      <PlayfulCard variant="ticket" tone="mint" className={cn("p-8 text-center", className)}>
-        <p className="text-2xl font-bold text-ink">Strategy call request received!</p>
-        <p className="mt-2 text-ink/70">
-          We&apos;ll confirm your 30-min call within one business day
-          {preferredSlot ? ` for ${preferredSlot}` : ""}.
-        </p>
-      </PlayfulCard>
+      <IntakeSuccessPanel
+        lead={submittedLead}
+        headline="Strategy call request received!"
+        subline={`We'll confirm your 30-min call within one business day${preferredSlot ? ` for ${preferredSlot}` : ""}. Your request is already routed in our admin demo.`}
+        className={className}
+      />
     );
   }
 

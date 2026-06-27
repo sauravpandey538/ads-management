@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
-import { MobileStickyCta } from "@/components/layout/mobile-sticky-cta";
-import { ScrollMicroCta } from "@/components/shared/scroll-micro-cta";
+import { MarketingChrome } from "@/components/layout/marketing-chrome";
+import { MarketingFooter } from "@/components/layout/marketing-footer";
+import { MarketingMain } from "@/components/layout/marketing-main";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -34,11 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col antialiased">
-        <SiteHeader />
-        <main className="flex-1 pb-20 md:pb-0">{children}</main>
-        <SiteFooter />
-        <MobileStickyCta />
-        <ScrollMicroCta />
+        <MarketingChrome />
+        <MarketingMain>{children}</MarketingMain>
+        <MarketingFooter />
       </body>
     </html>
   );

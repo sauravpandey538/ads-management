@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Check, ChevronRight, Shield, Timer } from "lucide-react";
+import { IntakeSuccessPanel } from "@/components/shared/intake-success-panel";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,6 +26,9 @@ import {
   type AuditLeadGoalId,
   type AuditTrackingId,
 } from "@/lib/site-config";
+import { appendLead } from "@/lib/leads-persistence";
+import { buildLeadFromIntake } from "@/lib/intake-scoring";
+import type { OutreachLead } from "@/lib/admin-mock-data";
 import { cn } from "@/lib/utils";
 
 const TOTAL_STEPS = 3;
@@ -50,6 +54,7 @@ export function LeadForm({
   const [adChannels, setAdChannels] = useState<AuditChannelId[]>([]);
   const [crm, setCrm] = useState<AuditCrmId | "">("");
   const [tracking, setTracking] = useState<AuditTrackingId | "">("");
+  const [submittedLead, setSubmittedLead] = useState<OutreachLead | null>(null);
 
   const toggleAdChannel = (id: AuditChannelId) => {
     if (id === "unsure") {
@@ -72,30 +77,34 @@ export function LeadForm({
       setStep((s) => (s + 1) as 1 | 2 | 3);
       return;
     }
+    const fd = new FormData(e.currentTarget);
+    const lead = buildLeadFromIntake({
+      source: "audit",
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      website: String(fd.get("website") ?? ""),
+      monthlySpend: spend,
+      leadGoalId: leadGoal,
+      adManagerId: adManager,
+      channelIds: adChannels,
+      crmId: crm,
+      trackingId: tracking,
+      challenge: String(fd.get("message") ?? "") || undefined,
+    });
+    appendLead(lead);
+    setSubmittedLead(lead);
     setSubmitted(true);
   };
 
-  if (submitted) {
+  if (submitted && submittedLead) {
     return (
-      <PlayfulCard
-        variant="ticket"
-        tone="mint"
-        className={cn("p-8 sm:p-10 text-center max-w-2xl mx-auto", className)}
-      >
-        <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-white border-[2.5px] border-ink shadow-[3px_3px_0_0_var(--ink)] text-3xl">
-          ✓
-        </div>
-        <h3 className="text-2xl font-bold text-ink">Audit request received!</h3>
-        <p className="mt-3 text-ink/70 leading-relaxed">
-          We&apos;ll deliver your custom 90-day roadmap within 5 business days. Check your inbox.
-        </p>
-        <Link
-          href="/services"
-          className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-        >
-          Browse our channel services <ChevronRight className="size-4" />
-        </Link>
-      </PlayfulCard>
+      <IntakeSuccessPanel
+        lead={submittedLead}
+        headline="Audit request received!"
+        subline="We'll deliver your custom 90-day roadmap within 5 business days. Track progress in your client portal below."
+        className={className}
+      />
     );
   }
 
