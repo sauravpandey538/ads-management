@@ -46,8 +46,8 @@ export function EmployeesManagement() {
         </PlayfulBadge>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">Employees</h1>
         <p className="mt-2 max-w-2xl text-muted-foreground">
-          Track daily attendance and log targets achieved. Present days require a summary of work
-          completed; absent days require a reason.
+          Track daily attendance and log today&apos;s priorities. Present days require a short plan
+          for the day; absent days require a reason.
         </p>
       </div>
 

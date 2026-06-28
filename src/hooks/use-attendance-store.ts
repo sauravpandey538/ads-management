@@ -40,13 +40,13 @@ export function useAttendanceStore() {
       employeeId: string,
       date: string,
       status: AttendanceStatus,
-      options?: { absentReason?: string; targetsAchieved?: string },
+      options?: { absentReason?: string; todayPriorities?: string },
     ) => {
       if (status === "absent" && !options?.absentReason?.trim()) {
         throw new Error("Absent days require a reason.");
       }
-      if (status === "present" && !options?.targetsAchieved?.trim()) {
-        throw new Error("Present days require targets achieved.");
+      if (status === "present" && !options?.todayPriorities?.trim()) {
+        throw new Error("Present days require today's priorities.");
       }
 
       const entry = normalizeAttendanceEntry({
@@ -54,7 +54,7 @@ export function useAttendanceStore() {
         date,
         status,
         absentReason: status === "absent" ? options?.absentReason?.trim() : undefined,
-        targetsAchieved: status === "present" ? options?.targetsAchieved?.trim() : undefined,
+        todayPriorities: status === "present" ? options?.todayPriorities?.trim() : undefined,
         updatedAt: new Date().toISOString(),
       });
 

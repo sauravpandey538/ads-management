@@ -18,8 +18,8 @@ export type AttendanceEntry = {
   status: AttendanceStatus;
   /** Required when status is absent — reason or explanation from the employee. */
   absentReason?: string;
-  /** Required when status is present — what the employee accomplished that day. */
-  targetsAchieved?: string;
+  /** Required when status is present — what the employee plans to focus on that day. */
+  todayPriorities?: string;
   updatedAt: string;
 };
 
@@ -52,13 +52,16 @@ export function attendanceEntryKey(employeeId: string, date: string): string {
   return `${employeeId}:${date}`;
 }
 
-export function normalizeAttendanceEntry(raw: AttendanceEntry): AttendanceEntry {
+type LegacyAttendanceEntry = AttendanceEntry & { targetsAchieved?: string };
+
+export function normalizeAttendanceEntry(raw: LegacyAttendanceEntry): AttendanceEntry {
   const status = raw.status;
+  const todayPriorities =
+    raw.todayPriorities?.trim() || raw.targetsAchieved?.trim() || undefined;
   return {
     ...raw,
     status,
     absentReason: status === "absent" ? raw.absentReason?.trim() || undefined : undefined,
-    targetsAchieved:
-      status === "present" ? raw.targetsAchieved?.trim() || undefined : undefined,
+    todayPriorities: status === "present" ? todayPriorities : undefined,
   };
 }

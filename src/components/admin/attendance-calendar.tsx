@@ -62,8 +62,8 @@ function dayTooltip(entry: AttendanceEntry): string {
   if (entry.status === "absent" && entry.absentReason) {
     return `Absent: ${entry.absentReason}`;
   }
-  if (entry.status === "present" && entry.targetsAchieved) {
-    return `Targets: ${entry.targetsAchieved}`;
+  if (entry.status === "present" && entry.todayPriorities) {
+    return `Priorities: ${entry.todayPriorities}`;
   }
   return ATTENDANCE_STATUS_LABELS[entry.status];
 }
@@ -73,7 +73,7 @@ type AttendanceCalendarProps = {
   employeeName: string;
 };
 
-/** Month grid — present days require targets achieved; absent days require a reason. */
+/** Month grid — present days require today's priorities; absent days require a reason. */
 export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalendarProps) {
   const { getEntry, setAttendance, clearAttendance } = useEmployees();
   const { toast } = useAdminToast();
@@ -83,7 +83,7 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [pendingStatus, setPendingStatus] = useState<AttendanceStatus | null>(null);
   const [absentReason, setAbsentReason] = useState("");
-  const [targetsAchieved, setTargetsAchieved] = useState("");
+  const [todayPriorities, setTodayPriorities] = useState("");
 
   const monthDays = useMemo(() => {
     const start = startOfWeek(startOfMonth(month), { weekStartsOn: 1 });
@@ -108,14 +108,14 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
   }, [employeeId, getEntry, month, monthDays]);
 
   /** Present-day logs for the selected month — shown below the calendar. */
-  const monthTargetLogs = useMemo(() => {
+  const monthPriorityLogs = useMemo(() => {
     return monthDays
       .filter((day) => isSameMonth(day, month))
       .map((day) => format(day, "yyyy-MM-dd"))
       .map((dateKey) => getEntry(employeeId, dateKey))
       .filter(
         (entry): entry is AttendanceEntry =>
-          Boolean(entry?.status === "present" && entry.targetsAchieved),
+          Boolean(entry?.status === "present" && entry.todayPriorities),
       )
       .sort((a, b) => b.date.localeCompare(a.date));
   }, [employeeId, getEntry, month, monthDays]);
@@ -125,7 +125,7 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
     setSelectedDate(dateKey);
     setPendingStatus(existing?.status ?? null);
     setAbsentReason(existing?.absentReason ?? "");
-    setTargetsAchieved(existing?.targetsAchieved ?? "");
+    setTodayPriorities(existing?.todayPriorities ?? "");
     setSheetOpen(true);
   };
 
@@ -134,7 +134,7 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
     setSelectedDate(null);
     setPendingStatus(null);
     setAbsentReason("");
-    setTargetsAchieved("");
+    setTodayPriorities("");
   };
 
   const handleSave = () => {
@@ -143,14 +143,14 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
       toast("Reason required", "Please explain why you were absent.");
       return;
     }
-    if (pendingStatus === "present" && !targetsAchieved.trim()) {
-      toast("Targets required", "Describe what you accomplished on this day.");
+    if (pendingStatus === "present" && !todayPriorities.trim()) {
+      toast("Priorities required", "List what you plan to focus on today.");
       return;
     }
     try {
       setAttendance(employeeId, selectedDate, pendingStatus, {
         absentReason: pendingStatus === "absent" ? absentReason : undefined,
-        targetsAchieved: pendingStatus === "present" ? targetsAchieved : undefined,
+        todayPriorities: pendingStatus === "present" ? todayPriorities : undefined,
       });
       toast(
         "Attendance saved",
@@ -176,7 +176,7 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
   const saveDisabled =
     !pendingStatus ||
     (pendingStatus === "absent" && !absentReason.trim()) ||
-    (pendingStatus === "present" && !targetsAchieved.trim());
+    (pendingStatus === "present" && !todayPriorities.trim());
 
   return (
     <div className="space-y-4">
@@ -263,10 +263,10 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
                     {ATTENDANCE_STATUS_SHORT[entry.status]}
                   </span>
                 )}
-                {entry?.status === "present" && entry.targetsAchieved && (
+                {entry?.status === "present" && entry.todayPriorities && (
                   <span
                     className="absolute top-1 right-1 size-1.5 rounded-full bg-primary"
-                    aria-label="Targets logged"
+                    aria-label="Priorities logged"
                   />
                 )}
               </button>
@@ -275,14 +275,14 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
         </div>
       </PlayfulCard>
 
-      {monthTargetLogs.length > 0 && (
+      {monthPriorityLogs.length > 0 && (
         <PlayfulCard variant="ticket" tone="neutral" className="p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-3">
             <Target className="size-4 text-primary" />
-            <h3 className="text-sm font-bold text-foreground">Targets achieved this month</h3>
+            <h3 className="text-sm font-bold text-foreground">Today&apos;s priorities this month</h3>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
-            {monthTargetLogs.map((entry) => (
+            {monthPriorityLogs.map((entry) => (
               <li
                 key={entry.date}
                 className="rounded-lg border border-border bg-card/80 p-3 text-left"
@@ -296,7 +296,7 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
                     {format(new Date(entry.date), "EEE, MMM d")}
                   </p>
                   <p className="mt-1.5 text-sm text-foreground leading-relaxed whitespace-pre-line">
-                    {entry.targetsAchieved}
+                    {entry.todayPriorities}
                   </p>
                 </button>
               </li>
@@ -307,8 +307,8 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
 
       <p className="text-xs text-muted-foreground flex items-center gap-1.5">
         <UserCircle2 className="size-3.5" />
-        Click a day to mark attendance for {employeeName}. Present days require targets achieved;
-        absent days require a reason.
+        Click a day to mark attendance for {employeeName}. Present days require today&apos;s
+        priorities; absent days require a reason.
       </p>
 
       <Sheet open={sheetOpen} onOpenChange={(open) => !open && closeSheet()}>
@@ -342,19 +342,20 @@ export function AttendanceCalendar({ employeeId, employeeName }: AttendanceCalen
 
             {pendingStatus === "present" && (
               <div className="space-y-2">
-                <Label htmlFor="targets-achieved">
-                  Targets achieved <span className="text-destructive">*</span>
+                <Label htmlFor="today-priorities">
+                  Today&apos;s priorities <span className="text-destructive">*</span>
                 </Label>
                 <Textarea
-                  id="targets-achieved"
-                  value={targetsAchieved}
-                  onChange={(e) => setTargetsAchieved(e.target.value)}
-                  placeholder="List exactly what you completed today — e.g. finished RevStack audit section, sent 3 follow-up emails, updated Meta campaign structure…"
+                  id="today-priorities"
+                  value={todayPriorities}
+                  onChange={(e) => setTodayPriorities(e.target.value)}
+                  placeholder="What will you focus on today? e.g. Finish RevStack audit section, follow up with 3 leads, update Meta campaign structure…"
                   rows={5}
                   className="resize-none"
                 />
                 <p className="text-xs text-muted-foreground">
-                  Required on present days — describe specific work completed, not just hours logged.
+                  Required on present days — list your main priorities for the day, not a full
+                  retrospective.
                 </p>
               </div>
             )}

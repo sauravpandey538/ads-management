@@ -96,7 +96,7 @@ export const ADMIN_PAGE_PERMISSIONS: PagePermission[] = [
     id: "employees",
     label: "Employees",
     path: "/admin/employees",
-    description: "Team attendance calendar with daily status and targets achieved.",
+    description: "Team attendance calendar with daily status and today's priorities.",
     access: {
       "super-admin": "full",
       admin: "full",
@@ -107,7 +107,7 @@ export const ADMIN_PAGE_PERMISSIONS: PagePermission[] = [
         allowed: [
           "View all team members",
           "Mark attendance for any employee",
-          "Log targets achieved on present days",
+          "Log today's priorities on present days",
         ],
         restricted: [],
       },
@@ -115,14 +115,14 @@ export const ADMIN_PAGE_PERMISSIONS: PagePermission[] = [
         allowed: [
           "View all team members",
           "Mark attendance for any employee",
-          "Log targets achieved on present days",
+          "Log today's priorities on present days",
         ],
         restricted: [],
       },
       employee: {
         allowed: [
           "View all team members",
-          "Mark own attendance and targets achieved",
+          "Mark own attendance and today's priorities",
         ],
         restricted: ["Cannot manage other users' roles"],
       },
